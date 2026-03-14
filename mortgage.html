@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator - Hey Kay Budgets</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #fff; color: #333; }
+        /* --- Logo --- */
+        .logo-section { text-align: center; padding: 10px 0 4px; }
+        .logo-img { max-width: 260px; width: 45%; height: auto; display: block; margin: 0 auto; }
+        /* --- Page --- */
+        .page { max-width: 1000px; margin: 0 auto; padding: 8px 18px 50px; }
+        h1 { text-align: center; font-size: 1.75rem; font-weight: 700; margin: 14px 0 20px; }
+        .nav-wrap { text-align: center; margin-bottom: 24px; }
+        a.nav-btn { display: inline-block; background: #f5c518; color: #222; font-weight: bold; padding: 9px 24px; border-radius: 5px; text-decoration: none; font-size: 0.92rem; }
+        a.nav-btn:hover { background: #e0b010; }
+        /* --- Form table --- */
+        .sec-title { font-weight: bold; font-size: 1rem; margin-bottom: 8px; }
+        .form-tbl { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+        .form-tbl th { background: #e8e8e8; padding: 8px 10px; text-align: left; font-weight: 700; font-size: 0.87rem; border: 1px solid #d2d2d2; }
+        .form-tbl td { padding: 5px 8px; border: 1px solid #e2e2e2; width: 50%; }
+        .form-tbl td.label-cell { background: #f5f5f5; font-size: 0.87rem; font-weight: 600; color: #555; width: 35%; }
+        .form-tbl input { width: 100%; border: 1px solid #bbb; border-radius: 3px; padding: 5px 8px; font-size: 0.87rem; color: #444; }
+        .form-tbl input:focus { outline: none; border-color: #999; }
+        .form-hint { font-size: 0.72rem; color: #999; margin-top: 2px; }
+        /* --- Buttons --- */
+        .act-btns { text-align: center; padding: 4px 0 28px; }
+        .btn-calc  { background: #dc3545; color: #fff; border: none; padding: 8px 22px; border-radius: 4px; cursor: pointer; font-size: 0.88rem; margin: 0 4px; }
+        .btn-calc:hover  { background: #c82333; }
+        .btn-reset { background: #f5f5f5; color: #333; border: 1px solid #ccc; padding: 8px 18px; border-radius: 4px; cursor: pointer; font-size: 0.88rem; margin: 0 4px; }
+        .btn-reset:hover { background: #e8e8e8; }
+        /* --- Results --- */
+        .res-card { border-left: 4px solid #2b6cb0; padding: 18px 20px; background: #fff; box-shadow: 0 1px 6px rgba(0,0,0,0.08); border-radius: 6px; margin-bottom: 20px; }
+        .res-card h3 { font-size: 1.1rem; margin-bottom: 12px; }
+        .sum-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 8px; margin-bottom: 14px; }
+        .si { background: #f7f9fc; border: 1px solid #e4eaf3; border-radius: 6px; padding: 9px 11px; }
+        .si .lb { font-size: 0.72rem; color: #888; text-transform: uppercase; letter-spacing: 0.03em; font-weight: 600; margin-bottom: 3px; }
+        .si .vl { font-size: 1rem; font-weight: 700; color: #222; }
+        .si.hl { background: #ebf8ff; border-color: #bee3f8; } .si.hl .vl { color: #2b6cb0; }
+        .si.sv { background: #f0fff4; border-color: #c6f6d5; } .si.sv .vl { color: #276749; }
+        .tog-btn { background: none; border: none; color: #3182ce; cursor: pointer; font-size: 0.85rem; font-weight: 600; padding: 0; margin-bottom: 8px; display: block; }
+        .tog-btn:hover { text-decoration: underline; }
+        .tbl-wrap { overflow-x: auto; margin-bottom: 12px; }
+        .sched { width: 100%; border-collapse: collapse; font-size: 0.82rem; min-width: 520px; }
+        .sched th { background: #2d3748; color: #fff; padding: 6px 12px; text-align: right; font-weight: 600; }
+        .sched th:first-child { text-align: center; }
+        .sched td { padding: 5px 12px; text-align: right; border-bottom: 1px solid #f0f0f0; font-family: monospace; }
+        .sched td:first-child { text-align: center; }
+        .sched tr:hover td { background: #f7fafc; }
+        .err-box { background: #fff5f5; border: 1px solid #feb2b2; border-radius: 5px; padding: 9px 13px; color: #c53030; font-size: 0.88rem; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <!-- Logo -->
+    <div class="logo-section">
+        <a href="https://www.youtube.com/@HeyKayBudgets" target="_blank" rel="noopener noreferrer">
+            <img class="logo-img" src="static/logo.png" alt="Hey Kay Budgets">
+        </a>
+    </div>
+    <!-- Page content -->
+    <div class="page">
+        <h1>Mortgage Calculator</h1>
+        <div class="nav-wrap">
+            <a href="index.html" class="nav-btn">Go to Debt Payoff Calculator</a>
+        </div>
+        <div class="sec-title">Mortgage Information</div>
+        <table class="form-tbl">
+            <thead>
+                <tr><th colspan="2">Loan Details</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="label-cell">Loan Amount ($)</td>
+                    <td><input type="number" id="loan_amount" placeholder="e.g., 300000" min="0" step="0.01"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Annual Interest Rate (%)</td>
+                    <td><input type="number" id="annual_rate" placeholder="e.g., 6.500" min="0" step="0.001"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Loan Term (Years)</td>
+                    <td><input type="number" id="term_years" placeholder="e.g., 30" min="1" step="1"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Monthly Payment ($) <div class="form-hint">Total payment incl. escrow</div></td>
+                    <td><input type="number" id="monthly_pay" placeholder="e.g., 1800.00" min="0" step="0.01"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Monthly Escrow ($) <div class="form-hint">Taxes &amp; insurance</div></td>
+                    <td><input type="number" id="escrow" placeholder="0.00" min="0" step="0.01" value="0"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Extra Monthly Fees ($) <div class="form-hint">HOA, PMI, etc.</div></td>
+                    <td><input type="number" id="extra_fees" placeholder="0.00" min="0" step="0.01" value="0"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Extra Principal Payment ($) <div class="form-hint">Additional monthly principal</div></td>
+                    <td><input type="number" id="extra_payment" placeholder="0.00" min="0" step="0.01" value="0"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="act-btns">
+            <button class="btn-calc" onclick="calculate()">Calculate</button>
+            <button class="btn-reset" onclick="resetAll()">Reset</button>
+        </div>
+        <div id="results"></div>
+    </div>
+    <script>
+        function fmt(n) { return '$' + parseFloat(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+        function r2(n) { return Math.round((n + Number.EPSILON) * 100) / 100; }
+        function gv(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+        function resetAll() {
+            ['loan_amount','annual_rate','term_years','monthly_pay'].forEach(function(id){ document.getElementById(id).value=''; });
+            ['escrow','extra_fees','extra_payment'].forEach(function(id){ document.getElementById(id).value='0'; });
+            document.getElementById('results').innerHTML = '';
+        }
+
+        function mortgageAmort(loan, mr, monthlyPay, escrow, extraFees, extraPmt) {
+            var bal = loan, sc = [], totInt = 0;
+            var totPay = monthlyPay + extraFees + extraPmt;
+            for (var m = 1; m <= 1000; m++) {
+                var i = r2(bal * mr);
+                var p = r2(monthlyPay - i - escrow + extraPmt);
+                var pay = totPay;
+                if (p <= 0) throw new Error('Monthly payment is too low to cover interest and escrow.');
+                if (p > bal) { p = bal; pay = r2(p + i + escrow + extraFees); }
+                bal = r2(bal - p); totInt = r2(totInt + i);
+                sc.push({ m:m, pay:pay, i:i, p:p, bal:Math.max(bal,0) });
+                if (bal <= 0) break;
+            }
+            return { sc:sc, totInt:totInt, months:sc.length };
+        }
+
+        function calcMinPI(loan, mr, n) {
+            if (mr === 0) return r2(loan / n);
+            var f = Math.pow(1 + mr, n);
+            return r2(loan * (mr * f) / (f - 1));
+        }
+
+        function calculate() {
+            var out = document.getElementById('results');
+            out.innerHTML = '';
+            var loan    = gv('loan_amount'),  rate   = gv('annual_rate');
+            var term    = gv('term_years'),   mpay   = gv('monthly_pay');
+            var escrow  = gv('escrow'),       efees  = gv('extra_fees');
+            var extPmt  = gv('extra_payment');
+            if (loan  <= 0) { out.innerHTML = '<div class="err-box">Loan Amount must be greater than zero.</div>'; return; }
+            if (term  <= 0) { out.innerHTML = '<div class="err-box">Loan Term must be greater than zero.</div>'; return; }
+            if (mpay  <= 0) { out.innerHTML = '<div class="err-box">Monthly Payment must be greater than zero.</div>'; return; }
+            if (rate  <  0 || escrow < 0 || efees < 0 || extPmt < 0) { out.innerHTML = '<div class="err-box">Values cannot be negative.</div>'; return; }
+            try {
+                var mr   = (rate / 100) / 12;
+                var n    = Math.round(term * 12);
+                var reqPI = r2(mpay - escrow);
+                var minPI = calcMinPI(loan, mr, n);
+                if (reqPI < minPI) {
+                    out.innerHTML = '<div class="err-box">Your P&amp;I payment (' + fmt(reqPI) + ') is less than the minimum required (' + fmt(minPI) + ') to pay off the loan in ' + term + ' years.</div>';
+                    return;
+                }
+                var noExtra = mortgageAmort(loan, mr, mpay, escrow, efees, 0);
+                var wExtra  = mortgageAmort(loan, mr, mpay, escrow, efees, extPmt);
+                renderResult(out, { loan:loan, rate:rate, term:term, mpay:mpay, escrow:escrow, efees:efees, extPmt:extPmt, reqPI:reqPI }, noExtra, wExtra);
+            } catch(e) { out.innerHTML = '<div class="err-box">' + e.message + '</div>'; }
+        }
+
+        function renderResult(c, d, noExtra, wExtra) {
+            var hasExtra = d.extPmt > 0;
+            var saved    = noExtra.months - wExtra.months;
+            var intSaved = r2(noExtra.totInt - wExtra.totInt);
+            var noExY = Math.floor(noExtra.months/12), noExM = noExtra.months % 12;
+            var wExY  = Math.floor(wExtra.months/12),  wExM  = wExtra.months % 12;
+
+            function buildRows(sc) {
+                return sc.map(function(r){
+                    return '<tr><td>'+r.m+'</td><td>'+fmt(r.pay)+'</td><td>'+fmt(r.i)+'</td><td>'+fmt(r.p)+'</td><td>'+fmt(r.bal)+'</td></tr>';
+                }).join('');
+            }
+            var tid1 = 'tbl1-' + Math.random().toString(36).substr(2,8);
+            var tid2 = 'tbl2-' + Math.random().toString(36).substr(2,8);
+            var schedHead = '<thead><tr><th>Month</th><th>Payment</th><th>Interest</th><th>Principal</th><th>Balance</th></tr></thead>';
+
+            var savedHtml   = saved    > 0 ? '<div class="si sv"><div class="lb">Months Saved</div><div class="vl">'+saved+'</div></div>' : '';
+            var intSavedHtml= intSaved > 0 ? '<div class="si sv"><div class="lb">Interest Saved</div><div class="vl">'+fmt(intSaved)+'</div></div>' : '';
+
+            var html =
+                '<div class="res-card"><h3>Mortgage Summary</h3>' +
+                '<div class="sum-grid">' +
+                  '<div class="si"><div class="lb">Loan Amount</div><div class="vl">'+fmt(d.loan)+'</div></div>' +
+                  '<div class="si"><div class="lb">Annual Rate</div><div class="vl">'+d.rate.toFixed(3)+'%</div></div>' +
+                  '<div class="si"><div class="lb">Term</div><div class="vl">'+d.term+' years</div></div>' +
+                  '<div class="si"><div class="lb">Monthly Payment</div><div class="vl">'+fmt(d.mpay)+'</div></div>' +
+                  '<div class="si"><div class="lb">P&amp;I Payment</div><div class="vl">'+fmt(d.reqPI)+'</div></div>' +
+                  '<div class="si"><div class="lb">Escrow</div><div class="vl">'+fmt(d.escrow)+'</div></div>' +
+                  (d.efees  > 0 ? '<div class="si"><div class="lb">Extra Fees</div><div class="vl">'+fmt(d.efees)+'</div></div>' : '') +
+                  (d.extPmt > 0 ? '<div class="si"><div class="lb">Extra Payment</div><div class="vl">'+fmt(d.extPmt)+'</div></div>' : '') +
+                '</div>' +
+                '<div class="sum-grid">' +
+                  '<div class="si"><div class="lb">Payoff (No Extra)</div><div class="vl">'+noExtra.months+' mo ('+noExY+'y '+noExM+'m)</div></div>' +
+                  '<div class="si"><div class="lb">Total Interest (No Extra)</div><div class="vl">'+fmt(noExtra.totInt)+'</div></div>' +
+                  (hasExtra ? '<div class="si hl"><div class="lb">Payoff (w/ Extra)</div><div class="vl">'+wExtra.months+' mo ('+wExY+'y '+wExM+'m)</div></div>' : '') +
+                  (hasExtra ? '<div class="si hl"><div class="lb">Total Interest (w/ Extra)</div><div class="vl">'+fmt(wExtra.totInt)+'</div></div>' : '') +
+                  savedHtml + intSavedHtml +
+                '</div>';
+
+            if (hasExtra) {
+                html +=
+                    '<button class="tog-btn" onclick="toggleTbl(\''+tid1+'\',this)">&#9658; Show Schedule Without Extra Payment ('+noExtra.months+' months)</button>' +
+                    '<div id="'+tid1+'" style="display:none"><div class="tbl-wrap"><table class="sched">'+schedHead+'<tbody>'+buildRows(noExtra.sc)+'</tbody></table></div></div>' +
+                    '<button class="tog-btn" onclick="toggleTbl(\''+tid2+'\',this)">&#9658; Show Schedule With Extra Payment ('+wExtra.months+' months)</button>' +
+                    '<div id="'+tid2+'" style="display:none"><div class="tbl-wrap"><table class="sched">'+schedHead+'<tbody>'+buildRows(wExtra.sc)+'</tbody></table></div></div>';
+            } else {
+                html +=
+                    '<button class="tog-btn" onclick="toggleTbl(\''+tid1+'\',this)">&#9658; Show Amortization Schedule ('+noExtra.months+' months)</button>' +
+                    '<div id="'+tid1+'" style="display:none"><div class="tbl-wrap"><table class="sched">'+schedHead+'<tbody>'+buildRows(noExtra.sc)+'</tbody></table></div></div>';
+            }
+            html += '</div>';
+            c.insertAdjacentHTML('beforeend', html);
+        }
+
+        function toggleTbl(id, btn) {
+            var el = document.getElementById(id), vis = el.style.display !== 'none';
+            el.style.display = vis ? 'none' : 'block';
+            btn.innerHTML = btn.innerHTML.replace(vis?'&#9660;':'&#9658;', vis?'&#9658;':'&#9660;')
+                                         .replace(vis?'Hide':'Show', vis?'Show':'Hide');
+        }
+    </script>
+</body>
+</html>

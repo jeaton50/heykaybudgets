@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debt Payoff Calculator - Hey Kay Budgets</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #fff; color: #333; }
+        /* --- Logo --- */
+        .logo-section { text-align: center; padding: 10px 0 4px; }
+        .logo-img { max-width: 260px; width: 45%; height: auto; display: block; margin: 0 auto; }
+        /* --- Page --- */
+        .page { max-width: 1250px; margin: 0 auto; padding: 8px 18px 50px; }
+        h1 { text-align: center; font-size: 1.75rem; font-weight: 700; margin: 14px 0 10px; }
+        .currency-row { text-align: center; margin-bottom: 12px; font-size: 0.92rem; }
+        .currency-row select { padding: 4px 8px; border: 1px solid #ccc; border-radius: 3px; font-size: 0.9rem; margin-left: 6px; }
+        .nav-wrap { text-align: center; margin-bottom: 20px; }
+        a.nav-btn { display: inline-block; background: #f5c518; color: #222; font-weight: bold; padding: 9px 24px; border-radius: 5px; text-decoration: none; font-size: 0.92rem; }
+        a.nav-btn:hover { background: #e0b010; }
+        /* --- Section header --- */
+        .sec-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        .sec-title { font-weight: bold; font-size: 1rem; }
+        .btn-export { background: #28a745; color: #fff; border: none; padding: 7px 15px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
+        .btn-export:hover { background: #218838; }
+        /* --- Debt input table --- */
+        .tbl-scroll { overflow-x: auto; }
+        .debt-tbl { width: 100%; border-collapse: collapse; margin-bottom: 12px; min-width: 700px; }
+        .debt-tbl th { background: #e8e8e8; padding: 8px 10px; text-align: left; font-weight: 700; font-size: 0.87rem; border: 1px solid #d2d2d2; }
+        .debt-tbl td { padding: 4px 6px; border: 1px solid #e2e2e2; }
+        .debt-tbl td.rm-cell { width: 28px; text-align: center; }
+        .debt-tbl input[type="text"], .debt-tbl input[type="number"] { width: 100%; border: 1px solid #bbb; border-radius: 3px; padding: 5px 7px; font-size: 0.87rem; color: #444; }
+        .debt-tbl input:focus { outline: none; border-color: #999; }
+        .btn-rm { background: none; border: none; color: #ccc; font-size: 1rem; cursor: pointer; padding: 2px 4px; line-height: 1; }
+        .btn-rm:hover { color: #dc3545; }
+        /* --- Action buttons --- */
+        .act-btns { text-align: center; padding: 4px 0 28px; }
+        .btn-add  { background: #17a2b8; color: #fff; border: none; padding: 8px 18px; border-radius: 4px; cursor: pointer; font-size: 0.88rem; margin: 0 4px; }
+        .btn-add:hover  { background: #138496; }
+        .btn-calc { background: #dc3545; color: #fff; border: none; padding: 8px 18px; border-radius: 4px; cursor: pointer; font-size: 0.88rem; margin: 0 4px; }
+        .btn-calc:hover { background: #c82333; }
+        .btn-reset { background: #f5f5f5; color: #333; border: 1px solid #ccc; padding: 8px 18px; border-radius: 4px; cursor: pointer; font-size: 0.88rem; margin: 0 4px; }
+        .btn-reset:hover { background: #e8e8e8; }
+        /* --- Results --- */
+        .res-card { border-left: 4px solid #3182ce; padding: 18px 20px; background: #fff; box-shadow: 0 1px 6px rgba(0,0,0,0.08); border-radius: 6px; margin-bottom: 20px; }
+        .res-card h3 { font-size: 1.1rem; margin-bottom: 12px; }
+        .sum-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 8px; margin-bottom: 12px; }
+        .si { background: #f7f9fc; border: 1px solid #e4eaf3; border-radius: 6px; padding: 9px 11px; }
+        .si .lb { font-size: 0.72rem; color: #888; text-transform: uppercase; letter-spacing: 0.03em; font-weight: 600; margin-bottom: 3px; }
+        .si .vl { font-size: 1rem; font-weight: 700; color: #222; }
+        .si.hl { background: #ebf8ff; border-color: #bee3f8; } .si.hl .vl { color: #2b6cb0; }
+        .si.sv { background: #f0fff4; border-color: #c6f6d5; } .si.sv .vl { color: #276749; }
+        .tog-btn { background: none; border: none; color: #3182ce; cursor: pointer; font-size: 0.85rem; font-weight: 600; padding: 0; margin-bottom: 8px; }
+        .tog-btn:hover { text-decoration: underline; }
+        .tbl-wrap { overflow-x: auto; }
+        .sched { width: 100%; border-collapse: collapse; font-size: 0.82rem; min-width: 480px; }
+        .sched th { background: #2d3748; color: #fff; padding: 6px 12px; text-align: right; font-weight: 600; }
+        .sched th:first-child { text-align: center; }
+        .sched td { padding: 5px 12px; text-align: right; border-bottom: 1px solid #f0f0f0; font-family: monospace; }
+        .sched td:first-child { text-align: center; }
+        .sched tr:hover td { background: #f7fafc; }
+        .err-box { background: #fff5f5; border: 1px solid #feb2b2; border-radius: 5px; padding: 9px 13px; color: #c53030; font-size: 0.88rem; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <!-- Logo -->
+    <div class="logo-section">
+        <a href="https://www.youtube.com/@HeyKayBudgets" target="_blank" rel="noopener noreferrer">
+            <img class="logo-img" src="static/logo.png" alt="Hey Kay Budgets">
+        </a>
+    </div>
+    <!-- Page content -->
+    <div class="page">
+        <h1>Debt Payoff Calculator</h1>
+        <div class="currency-row">
+            <label for="currency">Select Currency:</label>
+            <select id="currency">
+                <option value="usd">U.S. Dollar (USD)</option>
+                <option value="eur">Euro (EUR)</option>
+                <option value="gbp">British Pound (GBP)</option>
+                <option value="jpy">Japanese Yen (JPY)</option>
+                <option value="cad">Canadian Dollar (CAD)</option>
+                <option value="aud">Australian Dollar (AUD)</option>
+                <option value="mxn">Mexican Peso (MXN)</option>
+            </select>
+        </div>
+        <div class="nav-wrap">
+            <a href="mortgage.html" class="nav-btn">Go to Mortgage Calculator</a>
+        </div>
+        <div class="sec-header">
+            <span class="sec-title">Debt Information</span>
+            <button class="btn-export" onclick="exportData()">Export to Excel!</button>
+        </div>
+        <div class="tbl-scroll">
+            <table class="debt-tbl">
+                <thead>
+                    <tr>
+                        <th>Debt Name</th>
+                        <th>Balance ($)</th>
+                        <th>Interest Rate (%)</th>
+                        <th>Minimum Payment ($)</th>
+                        <th>Extra Monthly Payment ($)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="debt-rows"></tbody>
+            </table>
+        </div>
+        <div class="act-btns">
+            <button class="btn-add" onclick="addRow()">Add Another Debt</button>
+            <button class="btn-calc" onclick="calculate()">Calculate</button>
+            <button class="btn-reset" onclick="resetAll()">Reset</button>
+        </div>
+        <div id="results"></div>
+    </div>
+    <script>
+        var csym = { usd:'$', eur:'\u20AC', gbp:'\u00A3', jpy:'\u00A5', cad:'$', aud:'$', mxn:'$' };
+        var rowCount = 0;
+        function getSym() { return csym[document.getElementById('currency').value] || '$'; }
+        function fmt(n, sym) { return sym + parseFloat(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+        function r2(n) { return Math.round((n + Number.EPSILON) * 100) / 100; }
+
+        function addRow(name, bal, rate, min, ext) {
+            rowCount++;
+            var tr = document.createElement('tr');
+            var rmBtn = rowCount > 1 ? '<button class="btn-rm" onclick="this.closest(\'tr\').remove()" title="Remove">&times;</button>' : '';
+            tr.innerHTML =
+                '<td><input type="text" placeholder="e.g., Credit Card" value="' + (name||'') + '"></td>' +
+                '<td><input type="number" placeholder="e.g., 5000" min="0" step="0.01" value="' + (bal||'') + '"></td>' +
+                '<td><input type="number" placeholder="e.g., 4.125" min="0" step="0.001" value="' + (rate||'') + '"></td>' +
+                '<td><input type="number" placeholder="e.g., 100" min="0" step="0.01" value="' + (min||'') + '"></td>' +
+                '<td><input type="number" placeholder="e.g., 50" min="0" step="0.01" value="' + (ext||'') + '"></td>' +
+                '<td class="rm-cell">' + rmBtn + '</td>';
+            document.getElementById('debt-rows').appendChild(tr);
+        }
+
+        function resetAll() {
+            document.getElementById('debt-rows').innerHTML = '';
+            document.getElementById('results').innerHTML = '';
+            rowCount = 0;
+            addRow();
+        }
+
+        function exportData() {
+            var rows = document.querySelectorAll('#debt-rows tr');
+            if (!rows.length) { alert('No data to export.'); return; }
+            var csv = 'Debt Name,Balance ($),Interest Rate (%),Min Payment ($),Extra Payment ($)\n';
+            rows.forEach(function(row) {
+                var ins = row.querySelectorAll('input');
+                csv += '"'+ ins[0].value +'","'+ ins[1].value +'","'+ ins[2].value +'","'+ ins[3].value +'","'+ ins[4].value +'"\n';
+            });
+            var a = document.createElement('a');
+            a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+            a.download = 'debt_payoff_data.csv';
+            document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        }
+
+        function amort(d) {
+            var mr = (d.rate / 100) / 12, tot = d.min + d.ext;
+            var ob = d.bal, origM = 0;
+            for (var m = 1; m < 1000; m++) {
+                var oi = r2(ob * mr), op = r2(d.min - oi);
+                if (op <= 0) break;
+                if (op > ob) op = ob;
+                ob = r2(ob - op);
+                if (ob <= 0) { origM = m; break; }
+            }
+            var bal = d.bal, sc = [];
+            for (var m = 1; m < 1000; m++) {
+                var i = r2(bal * mr), p = r2(tot - i), pay = tot;
+                if (p <= 0) throw new Error('Payment too low for "' + d.name + '".');
+                if (p > bal) { p = bal; pay = r2(p + i); }
+                bal = r2(bal - p);
+                sc.push({ m: m, pay: pay, i: i, p: p, bal: Math.max(bal, 0) });
+                if (bal <= 0) break;
+            }
+            return { sc: sc, origM: origM, origY: Math.ceil(origM/12), mo: sc.length, yr: Math.ceil(sc.length/12), saved: origM - sc.length };
+        }
+
+        function calculate() {
+            var sym = getSym(), out = document.getElementById('results');
+            out.innerHTML = '';
+            var rows = document.querySelectorAll('#debt-rows tr');
+            if (!rows.length) { out.innerHTML = '<div class="err-box">Please add at least one debt.</div>'; return; }
+            rows.forEach(function(row, idx) {
+                var ins  = row.querySelectorAll('input');
+                var name = ins[0].value.trim() || ('Debt ' + (idx + 1));
+                var bal  = parseFloat(ins[1].value) || 0;
+                var rate = parseFloat(ins[2].value) || 0;
+                var min  = parseFloat(ins[3].value) || 0;
+                var ext  = parseFloat(ins[4].value) || 0;
+                if (bal < 0 || rate < 0 || min < 0 || ext < 0) { showErr(out, name, 'Values cannot be negative.'); return; }
+                try {
+                    var res = amort({ name: name, bal: bal, rate: rate, min: min, ext: ext });
+                    renderResult(out, { name: name, bal: bal, rate: rate, min: min, ext: ext }, res, sym);
+                } catch(e) { showErr(out, name, e.message); }
+            });
+        }
+
+        function showErr(c, name, msg) {
+            c.insertAdjacentHTML('beforeend', '<div class="err-box"><strong>' + name + ':</strong> ' + msg + '</div>');
+        }
+
+        function renderResult(c, d, res, sym) {
+            var tid = 'tbl-' + Math.random().toString(36).substr(2, 8);
+            var totInt  = r2(res.sc.reduce(function(a,r){return a+r.i;},0));
+            var totPaid = r2(res.sc.reduce(function(a,r){return a+r.pay;},0));
+            var trows = res.sc.map(function(r){
+                return '<tr><td>'+r.m+'</td><td>'+fmt(r.pay,sym)+'</td><td>'+fmt(r.i,sym)+'</td><td>'+fmt(r.p,sym)+'</td><td>'+fmt(r.bal,sym)+'</td></tr>';
+            }).join('');
+            var origH  = res.origM > 0 ? '<div class="si"><div class="lb">Original Payoff</div><div class="vl">'+res.origM+' mo / '+res.origY+' yr</div></div>' : '';
+            var savedH = res.saved > 0 ? '<div class="si sv"><div class="lb">Months Saved</div><div class="vl">'+res.saved+'</div></div>' : '';
+            c.insertAdjacentHTML('beforeend',
+                '<div class="res-card"><h3>' + d.name + '</h3>' +
+                '<div class="sum-grid">' +
+                  '<div class="si"><div class="lb">Balance</div><div class="vl">'+fmt(d.bal,sym)+'</div></div>' +
+                  '<div class="si"><div class="lb">Interest Rate</div><div class="vl">'+d.rate.toFixed(3)+'%</div></div>' +
+                  '<div class="si"><div class="lb">Min Payment</div><div class="vl">'+fmt(d.min,sym)+'</div></div>' +
+                  '<div class="si"><div class="lb">Extra Payment</div><div class="vl">'+fmt(d.ext,sym)+'</div></div>' +
+                  '<div class="si"><div class="lb">Total Interest</div><div class="vl">'+fmt(totInt,sym)+'</div></div>' +
+                  '<div class="si"><div class="lb">Total Paid</div><div class="vl">'+fmt(totPaid,sym)+'</div></div>' +
+                  origH +
+                  '<div class="si hl"><div class="lb">Payoff w/ Extra</div><div class="vl">'+res.mo+' mo / '+res.yr+' yr</div></div>' +
+                  savedH +
+                '</div>' +
+                '<button class="tog-btn" onclick="toggleTbl(\''+tid+'\',this)">&#9658; Show Schedule ('+res.sc.length+' months)</button>' +
+                '<div id="'+tid+'" style="display:none"><div class="tbl-wrap">' +
+                  '<table class="sched"><thead><tr><th>Month</th><th>Payment</th><th>Interest</th><th>Principal</th><th>Balance</th></tr></thead>' +
+                  '<tbody>'+trows+'</tbody></table></div></div></div>');
+        }
+
+        function toggleTbl(id, btn) {
+            var el = document.getElementById(id), vis = el.style.display !== 'none';
+            el.style.display = vis ? 'none' : 'block';
+            btn.innerHTML = vis ? '&#9658; Show Schedule' : '&#9660; Hide Schedule';
+        }
+
+        addRow();
+    </script>
+</body>
+</html>
