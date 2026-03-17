@@ -124,6 +124,18 @@
         }
         .btn-export:hover { transform: translateY(-1px); box-shadow: 0 7px 22px rgba(0,201,106,0.45); }
 
+        /* ── Page Transitions ── */
+        @keyframes pageIn {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pageOut {
+            from { opacity: 1; transform: translateY(0); }
+            to   { opacity: 0; transform: translateY(-18px); }
+        }
+        body { animation: pageIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
+        body.page-exit { animation: pageOut 0.3s ease forwards; }
+
         /* ── Nav ── */
         .nav-wrap { text-align: center; margin-bottom: 30px; }
         a.nav-btn {
@@ -765,6 +777,18 @@
                 .replace(vis ? '&#9660;' : '&#9658;', vis ? '&#9658;' : '&#9660;')
                 .replace(vis ? 'Hide' : 'Show', vis ? 'Show' : 'Hide');
         }
+
+        // Page transition on nav button click
+        document.querySelectorAll('a.nav-btn').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var href = this.getAttribute('href');
+                if (href && !href.startsWith('#') && !href.startsWith('http')) {
+                    e.preventDefault();
+                    document.body.classList.add('page-exit');
+                    setTimeout(function() { window.location.href = href; }, 300);
+                }
+            });
+        });
     </script>
 </body>
 </html>
