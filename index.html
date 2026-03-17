@@ -131,17 +131,24 @@
             box-shadow: 0 0 0 3px rgba(245,197,24,0.14);
         }
 
-        /* ── Page Transitions ── */
-        @keyframes pageIn {
-            from { opacity: 0; transform: translateY(18px); }
-            to   { opacity: 1; transform: translateY(0); }
+        /* ── 3D Cube Page Transitions ── */
+        html { overflow-x: hidden; }
+        @keyframes cubeIn {
+            from { transform: perspective(1200px) rotateY(90deg); }
+            to   { transform: perspective(1200px) rotateY(0deg); }
         }
-        @keyframes pageOut {
-            from { opacity: 1; transform: translateY(0); }
-            to   { opacity: 0; transform: translateY(-18px); }
+        @keyframes cubeOut {
+            from { transform: perspective(1200px) rotateY(0deg); }
+            to   { transform: perspective(1200px) rotateY(-90deg); }
         }
-        body { animation: pageIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
-        body.page-exit { animation: pageOut 0.3s ease forwards; }
+        body {
+            animation: cubeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+            transform-origin: left center;
+        }
+        body.page-exit {
+            animation: cubeOut 0.35s ease forwards;
+            transform-origin: right center;
+        }
 
         /* ── Nav ── */
         .nav-wrap { text-align: center; margin-bottom: 30px; }
