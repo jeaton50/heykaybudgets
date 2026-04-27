@@ -9,7 +9,8 @@
         src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Hey Kay Budgets</title>
+    <title>Contact - Hey Kay Budgets</title>
+    <meta name="description" content="Get in touch with Hey Kay Budgets. Have a question about budgeting, a calculator, or just want to say hi? Reach out here.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,7 +19,9 @@
             --gold: #f5c518;
             --gold-light: #ffd84d;
             --teal: #00d4ff;
+            --green: #00e676;
             --bg: #060912;
+            --bg2: #0d1526;
             --card: rgba(255,255,255,0.04);
             --card-border: rgba(255,255,255,0.08);
             --text: #f0f4ff;
@@ -133,11 +136,36 @@
         }
         .glass-card p:last-child { margin-bottom: 0; }
 
-        .glass-card ul {
-            color: var(--text-muted); font-size: 0.92rem;
-            line-height: 1.75; padding-left: 20px; margin-bottom: 14px;
+        .contact-item {
+            display: flex; align-items: flex-start; gap: 16px;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
-        .glass-card ul li { margin-bottom: 6px; }
+        .contact-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .contact-icon {
+            font-size: 1.4rem; flex-shrink: 0;
+            width: 42px; height: 42px;
+            background: rgba(245,197,24,0.1);
+            border: 1px solid rgba(245,197,24,0.2);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .contact-label {
+            font-size: 0.78rem; font-weight: 600;
+            color: var(--gold); text-transform: uppercase;
+            letter-spacing: 0.08em; margin-bottom: 4px;
+        }
+        .contact-value {
+            font-size: 0.95rem; color: var(--text);
+            font-weight: 500;
+        }
+        .contact-value a {
+            color: var(--teal); text-decoration: none;
+            transition: color 0.2s;
+        }
+        .contact-value a:hover { color: var(--gold); }
 
         .nav-wrap { text-align: center; margin-bottom: 36px; }
         a.nav-btn {
@@ -197,64 +225,42 @@
         </header>
 
         <div class="page">
-            <h1>Terms of Service</h1>
-            <p class="subtitle">Last updated: January 1, 2025</p>
+            <h1>Contact</h1>
+            <p class="subtitle">I'd love to hear from you</p>
 
             <div class="nav-wrap">
-                <a href="index.html" class="nav-btn">&#8592; Back to Calculators</a>
+                <a href="index.html" class="nav-btn">&#8592; Back to Home</a>
             </div>
 
             <div class="glass-card">
-                <h2>Acceptance of Terms</h2>
-                <p>By accessing and using Hey Kay Budgets ("the Site"), you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Site.</p>
+                <h2>Get in Touch</h2>
+                <p>Have a question about one of the calculators? Want to share your budgeting win? Or maybe you just found something that isn't working right? I read every message and do my best to respond to each one.</p>
+                <p>Hey Kay Budgets is a one-person operation built around genuine passion for personal finance, so replies may take a day or two — but they will come.</p>
+
+                <div class="contact-item">
+                    <div class="contact-icon">&#9993;</div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value"><a href="mailto:hello@heykaybudgets.com">hello@heykaybudgets.com</a></div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">&#9654;</div>
+                    <div>
+                        <div class="contact-label">YouTube</div>
+                        <div class="contact-value"><a href="https://www.youtube.com/@HeyKayBudgets" target="_blank" rel="noopener noreferrer">@HeyKayBudgets</a></div>
+                    </div>
+                </div>
             </div>
 
             <div class="glass-card">
-                <h2>Use of the Site</h2>
-                <p>Hey Kay Budgets provides free financial calculator tools for informational and educational purposes. You may use the Site for personal, non-commercial purposes in accordance with these terms.</p>
-                <p>You agree not to:</p>
-                <ul>
-                    <li>Use the Site for any unlawful purpose</li>
-                    <li>Attempt to disrupt or interfere with the Site's functionality</li>
-                    <li>Reproduce or redistribute the Site's content without permission</li>
-                    <li>Use automated tools to scrape or crawl the Site excessively</li>
-                </ul>
-            </div>
-
-            <div class="glass-card">
-                <h2>Disclaimer — Not Financial Advice</h2>
-                <p><strong style="color:var(--text)">The calculators and content on Hey Kay Budgets are provided for informational and educational purposes only and do not constitute financial, investment, tax, or legal advice.</strong></p>
-                <p>Results from our calculators are estimates based on the information you provide. Actual loan terms, interest rates, and payoff timelines may vary. Always consult a qualified financial professional before making financial decisions.</p>
-            </div>
-
-            <div class="glass-card">
-                <h2>Accuracy of Information</h2>
-                <p>We strive to keep our calculators accurate and up to date, but we make no warranties or representations regarding the accuracy, completeness, or reliability of any calculations or content on the Site. We reserve the right to correct errors or update content at any time without notice.</p>
-            </div>
-
-            <div class="glass-card">
-                <h2>Limitation of Liability</h2>
-                <p>To the fullest extent permitted by law, Hey Kay Budgets and its operators shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of the Site or reliance on any information provided, even if advised of the possibility of such damages.</p>
-            </div>
-
-            <div class="glass-card">
-                <h2>Third-Party Links &amp; Advertising</h2>
-                <p>The Site may display third-party advertisements through Google AdSense and may contain links to third-party websites. We are not responsible for the content, privacy practices, or accuracy of any third-party sites. The inclusion of any link does not imply endorsement.</p>
-            </div>
-
-            <div class="glass-card">
-                <h2>Intellectual Property</h2>
-                <p>All content on the Site, including but not limited to text, graphics, logos, and code, is the property of Hey Kay Budgets and is protected by applicable intellectual property laws. You may not reproduce or distribute any content without prior written permission.</p>
-            </div>
-
-            <div class="glass-card">
-                <h2>Changes to Terms</h2>
-                <p>We reserve the right to update these Terms of Service at any time. Changes will be posted on this page with an updated date. Continued use of the Site after changes are posted constitutes your acceptance of the revised terms.</p>
-            </div>
-
-            <div class="glass-card">
-                <h2>Contact</h2>
-                <p>If you have questions about these Terms of Service, please reach out through the <a href="https://www.youtube.com/@HeyKayBudgets" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none;font-weight:600;">Hey Kay Budgets YouTube channel</a>.</p>
+                <h2>What to Reach Out About</h2>
+                <p>Here are some things people commonly contact me about — and I'm happy to help with all of them:</p>
+                <p><strong>Calculator questions:</strong> If you're not sure how to use the Debt Payoff Calculator or Mortgage Calculator, or if something looks off in your results, send me a note. I'll walk you through it.</p>
+                <p><strong>Budgeting questions:</strong> If you read one of the blog posts and have a follow-up question, or you're in a specific financial situation and want to know how a strategy might apply to you, I'm here. I can't offer formal financial advice, but I can share what's worked for me and point you toward resources.</p>
+                <p><strong>Feedback and suggestions:</strong> If you have an idea for a calculator, a blog topic you'd like to see covered, or you noticed a bug on the site, please let me know. This site grows because of input from readers like you.</p>
+                <p><strong>Partnerships:</strong> If you represent a brand or product that aligns with our mission of making personal finance accessible, feel free to reach out about partnership opportunities.</p>
             </div>
         </div>
 
