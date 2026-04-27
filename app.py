@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_from_directory
 from decimal import Decimal, getcontext, ROUND_HALF_UP
 import math
 import sys
@@ -220,6 +220,48 @@ def compute_mortgage_amortization_schedule(balance, monthly_interest_rate, month
         raise ValueError("Calculation exceeded 1000 months. Please check your inputs.")
 
     return schedule, total_interest, month - 1
+
+
+# Static page routes for clean URLs
+@app.route('/about')
+def about():
+    return send_from_directory('.', 'about.html')
+
+@app.route('/contact')
+def contact():
+    return send_from_directory('.', 'contact.html')
+
+@app.route('/privacy-policy')
+def privacy_policy():
+    return send_from_directory('.', 'privacy.html')
+
+@app.route('/terms-of-service')
+def terms_of_service():
+    return send_from_directory('.', 'terms.html')
+
+@app.route('/mortgage-calculator', methods=['GET', 'POST'])
+def mortgage_calculator_page():
+    return send_from_directory('.', 'mortgage.html')
+
+@app.route('/how-to-get-one-month-ahead')
+def buffer_page():
+    return send_from_directory('.', 'buffer.html')
+
+@app.route('/sinking-funds-101')
+def sinking_funds():
+    return send_from_directory('.', 'sinking-funds.html')
+
+@app.route('/how-i-saved-20k')
+def saving_strategy():
+    return send_from_directory('.', 'saving-strategy.html')
+
+@app.route('/building-a-tiny-safety-net')
+def safety_net():
+    return send_from_directory('.', 'safety-net.html')
+
+@app.route('/5-budgeting-mistakes-to-avoid')
+def budgeting_mistakes():
+    return send_from_directory('.', 'mistakes.html')
 
 
 # Route for Debt Payoff Calculator
