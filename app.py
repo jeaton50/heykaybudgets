@@ -263,6 +263,10 @@ def safety_net():
 def budgeting_mistakes():
     return send_from_directory('.', 'mistakes.html')
 
+@app.route('/blog')
+def blog():
+    return send_from_directory('.', 'blog.html')
+
 
 # Route for Debt Payoff Calculator
 @app.route('/', methods=['GET', 'POST'])

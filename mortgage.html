@@ -416,6 +416,16 @@
             h1 { font-size: 1.7rem; }
             .act-btns { flex-direction: column; align-items: stretch; }
         }
+        .site-nav { text-align: center; padding: 10px 20px 14px; }
+        .site-nav a { display: inline-block; color: rgba(240,244,255,0.55); text-decoration: none; font-size: 0.83rem; font-weight: 500; padding: 5px 14px; border-radius: 20px; margin: 2px 3px; transition: color 0.2s, background 0.2s; }
+        .site-nav a:hover, .site-nav a.nav-active { color: var(--gold); background: rgba(245,197,24,0.10); }
+        #ck-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: rgba(6,9,18,0.97); border-top: 1px solid rgba(245,197,24,0.2); padding: 14px 28px; display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        #ck-banner p { color: rgba(240,244,255,0.65); font-size: 0.82rem; margin: 0; flex: 1; min-width: 220px; line-height: 1.6; }
+        #ck-banner a { color: var(--gold); }
+        .ck-row { display: flex; gap: 10px; flex-shrink: 0; }
+        .ck-yes { background: linear-gradient(135deg, var(--gold), #c99a00); color: #07090f; border: none; padding: 8px 22px; border-radius: 20px; font-weight: 700; font-size: 0.82rem; cursor: pointer; font-family: inherit; }
+        .ck-no { background: transparent; color: rgba(240,244,255,0.45); border: 1px solid rgba(255,255,255,0.15); padding: 8px 18px; border-radius: 20px; font-size: 0.82rem; cursor: pointer; font-family: inherit; transition: color 0.2s; }
+        .ck-yes:hover { filter: brightness(1.1); } .ck-no:hover { color: rgba(240,244,255,0.75); }
 
         /* ── Educational Content ── */
         .content-section {
@@ -526,6 +536,14 @@
                 <img class="logo-img" src="static/logo.png" alt="Hey Kay Budgets">
             </a>
         </header>
+
+        <nav class="site-nav">
+            <a href="index.html">Debt Calculator</a>
+            <a href="mortgage.html" class="nav-active">Mortgage</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
 
         <!-- Page -->
         <div class="page">
@@ -1119,5 +1137,16 @@
         </div>
 
     </section>
+<div id="ck-banner">
+    <p>We use cookies to serve personalized ads via Google AdSense and analyze site traffic. Read our <a href="privacy.html">Privacy Policy</a>.</p>
+    <div class="ck-row">
+        <button class="ck-yes" onclick="hkbCk('yes')">Accept All</button>
+        <button class="ck-no" onclick="hkbCk('no')">Decline</button>
+    </div>
+</div>
+<script>
+(function(){ if(localStorage.getItem('hkb_ck')) document.getElementById('ck-banner').style.display='none'; })();
+function hkbCk(v){ localStorage.setItem('hkb_ck',v); document.getElementById('ck-banner').style.display='none'; }
+</script>
 </body>
 </html>
