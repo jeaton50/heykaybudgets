@@ -9,28 +9,26 @@
         src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Hey Kay Budgets</title>
-    <meta name="description" content="Learn about Kay and the story behind Hey Kay Budgets — a personal finance site built for real people who want practical tools and honest advice.">
-    <link rel="canonical" href="https://www.heykaybudgets.com/about.html" />
-    <meta property="og:title" content="About Kay — Hey Kay Budgets" />
-    <meta property="og:description" content="The story behind Hey Kay Budgets — how Kay went from paycheck to paycheck to saving $20K in a year, and why she built this site." />
-    <meta property="og:url" content="https://www.heykaybudgets.com/about.html" />
+    <title>Blog - Hey Kay Budgets</title>
+    <meta name="description" content="Budgeting tips, saving strategies, and personal finance guides from Hey Kay Budgets. Real advice that helps you take control of your money.">
+    <link rel="canonical" href="https://www.heykaybudgets.com/blog.html" />
+    <meta property="og:title" content="Blog — Hey Kay Budgets" />
+    <meta property="og:description" content="Budgeting tips, saving strategies, and personal finance guides from Hey Kay Budgets." />
+    <meta property="og:url" content="https://www.heykaybudgets.com/blog.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Hey Kay Budgets" />
     <meta property="og:image" content="https://www.heykaybudgets.com/static/logo.png" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "name": "About Hey Kay Budgets",
-      "url": "https://www.heykaybudgets.com/about.html",
-      "description": "The story behind Hey Kay Budgets and its founder Kay.",
-      "isPartOf": { "@type": "WebSite", "name": "Hey Kay Budgets", "url": "https://www.heykaybudgets.com" },
-      "about": {
-        "@type": "Person",
-        "name": "Kay",
-        "url": "https://www.heykaybudgets.com/about.html",
-        "sameAs": ["https://www.youtube.com/@HeyKayBudgets"]
+      "@type": "Blog",
+      "name": "Hey Kay Budgets Blog",
+      "url": "https://www.heykaybudgets.com/blog.html",
+      "description": "Budgeting tips, saving strategies, and personal finance guides.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Hey Kay Budgets",
+        "url": "https://www.heykaybudgets.com"
       }
     }
     </script>
@@ -42,9 +40,7 @@
             --gold: #f5c518;
             --gold-light: #ffd84d;
             --teal: #00d4ff;
-            --green: #00e676;
             --bg: #060912;
-            --bg2: #0d1526;
             --card: rgba(255,255,255,0.04);
             --card-border: rgba(255,255,255,0.08);
             --text: #f0f4ff;
@@ -127,59 +123,57 @@
             font-size: 0.9rem; margin-bottom: 40px;
         }
 
-        .glass-card {
+        .post-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .post-card {
             background: var(--card);
             border: 1px solid var(--card-border);
             border-radius: 18px;
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            padding: 32px 36px; margin-bottom: 20px;
+            padding: 28px 32px;
             position: relative; overflow: hidden;
+            text-decoration: none;
+            display: block;
+            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
         }
-        .glass-card::before {
+        .post-card::before {
             content: ''; position: absolute;
             top: 0; left: 0; right: 0; height: 1px;
             background: linear-gradient(90deg, transparent, rgba(245,197,24,0.45), rgba(0,212,255,0.3), transparent);
         }
-
-        .glass-card h2 {
-            font-size: 1.1rem; font-weight: 700; margin-bottom: 14px;
-            display: flex; align-items: center; gap: 10px; color: var(--text);
-        }
-        .glass-card h2::before {
-            content: '';
-            display: inline-block; width: 3px; height: 20px;
-            background: linear-gradient(180deg, var(--gold), var(--teal));
-            border-radius: 3px; flex-shrink: 0;
+        .post-card:hover {
+            border-color: rgba(245,197,24,0.28);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 34px rgba(0,0,0,0.25);
         }
 
-        .glass-card p {
-            color: var(--text-muted); font-size: 0.92rem;
-            line-height: 1.75; margin-bottom: 14px;
+        .post-tag {
+            display: inline-block;
+            font-size: 0.72rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--gold); margin-bottom: 10px;
         }
-        .glass-card p:last-child { margin-bottom: 0; }
 
-        .glass-card ul {
-            padding-left: 1.5rem;
-            margin-bottom: 14px;
+        .post-title {
+            font-size: 1.1rem; font-weight: 700;
+            color: var(--text); margin-bottom: 10px;
+            line-height: 1.4;
         }
-        .glass-card li {
-            color: var(--text-muted); font-size: 0.92rem;
-            line-height: 1.75; margin-bottom: 8px;
-        }
-        .glass-card strong { color: var(--text); }
 
-        .nav-wrap { text-align: center; margin-bottom: 36px; }
-        a.nav-btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: linear-gradient(135deg, var(--gold) 0%, #c99a00 100%);
-            color: #07090f; font-weight: 700;
-            padding: 11px 30px; border-radius: 50px;
-            text-decoration: none; font-size: 0.9rem;
-            box-shadow: 0 4px 22px rgba(245,197,24,0.32);
-            transition: transform 0.25s, box-shadow 0.25s;
+        .post-excerpt {
+            color: var(--text-muted); font-size: 0.88rem;
+            line-height: 1.7; margin-bottom: 16px;
         }
-        a.nav-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 34px rgba(245,197,24,0.52); }
+
+        .post-read-more {
+            font-size: 0.82rem; font-weight: 600;
+            color: var(--teal);
+        }
 
         .site-footer {
             text-align: center;
@@ -203,7 +197,7 @@
 
         @media (max-width: 640px) {
             h1 { font-size: 1.7rem; }
-            .glass-card { padding: 22px 18px; }
+            .post-card { padding: 20px 18px; }
         }
         .site-nav { text-align: center; padding: 10px 20px 14px; }
         .site-nav a { display: inline-block; color: rgba(240,244,255,0.55); text-decoration: none; font-size: 0.83rem; font-weight: 500; padding: 5px 14px; border-radius: 20px; margin: 2px 3px; transition: color 0.2s, background 0.2s; }
@@ -239,53 +233,52 @@
         <nav class="site-nav">
             <a href="index.html">Debt Calculator</a>
             <a href="mortgage.html">Mortgage</a>
-            <a href="blog.html">Blog</a>
-            <a href="about.html" class="nav-active">About</a>
+            <a href="blog.html" class="nav-active">Blog</a>
+            <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </nav>
 
         <div class="page">
-            <h1>About Us</h1>
-            <p class="subtitle">The story behind Hey Kay Budgets</p>
+            <h1>Blog</h1>
+            <p class="subtitle">Practical budgeting tips and personal finance guides from Kay</p>
 
-            <div class="nav-wrap">
-                <a href="index.html" class="nav-btn">&#8592; Back to Calculators</a>
-            </div>
+            <div class="post-grid">
 
-            <div class="glass-card">
-                <h2>Meet Kay</h2>
-                <p>Welcome to Hey Kay Budgets — a place built for real people dealing with real financial struggles. I'm Kay, and my relationship with money wasn't always a healthy one.</p>
-                <p>For years, I lived paycheck to paycheck, terrified every time an unexpected bill showed up. I watched my credit card balances creep higher while my savings sat at zero. I knew I needed to change, but every financial resource I found felt either too complicated or too judgmental. Nobody was talking about budgeting in a way that felt real, relatable, or actually achievable for someone in my situation.</p>
-                <p>So I figured it out myself — the hard way. I tried every budgeting method I could find: the 50/30/20 rule, zero-based budgeting, the envelope system, spending freezes. Some worked. A lot didn't. But through trial, error, and a whole lot of spreadsheets, I slowly developed a system that actually fit my life.</p>
-                <p>Then in 2025, something clicked. I went from barely saving anything to putting away nearly $20,000 in a single year — while still paying down debt, covering my bills, and yes, still going out for happy hour occasionally. It wasn't about perfection. It was about having the right tools, the right mindset, and a plan I could actually stick to.</p>
-            </div>
+                <a href="buffer.html" class="post-card">
+                    <div class="post-tag">Personal Finance</div>
+                    <div class="post-title">How to Get One Month Ahead on Your Budget</div>
+                    <div class="post-excerpt">Breaking the paycheck-to-paycheck cycle feels impossible — until you understand the six-step buffer system that changes your entire relationship with money.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
 
-            <div class="glass-card">
-                <h2>Why I Created This Site</h2>
-                <p>I built Hey Kay Budgets because I wanted other people to have access to the tools and honest guidance that helped me turn things around. No fluff, no shame, no "just stop buying coffee" advice. Just practical, real-world strategies for people who are trying to do better with their money.</p>
-                <p>The calculators here — the Debt Payoff Calculator and the Mortgage Calculator — are exactly the kinds of tools I wish I'd had when I was drowning in debt. They take the math out of your hands so you can focus on the strategy. Want to know exactly how much interest you're paying on your credit card? There's a calculator for that. Wondering how much faster you'd pay off your house if you added $200 a month to your payment? We've got you covered.</p>
-                <p>Beyond the calculators, the blog posts on this site come directly from my own experience. Every tip, every strategy, every mistake I describe — I've lived it. That's not something you'll find on a generic finance site written by someone who's never had to choose between groceries and a car payment.</p>
-            </div>
+                <a href="sinking-funds.html" class="post-card">
+                    <div class="post-tag">Budgeting Basics</div>
+                    <div class="post-title">Sinking Funds 101: How to Save for Every Expense Without Stress</div>
+                    <div class="post-excerpt">Irregular expenses don't have to derail your budget. Learn how sinking funds turn every surprise bill into a planned purchase you're already ready for.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
 
-            <div class="glass-card">
-                <h2>Who This Site Is For</h2>
-                <p>Hey Kay Budgets is for:</p>
-                <ul>
-                    <li>The person who has tried budgeting before and given up because it felt too restrictive</li>
-                    <li>The person who feels too far behind to ever catch up — you're not, I promise</li>
-                    <li>The person making decent money but somehow still running out before the end of the month</li>
-                    <li>The first-time homebuyer trying to understand what they're actually signing up for</li>
-                    <li>Anyone who wants to understand their money better without a finance degree or a big income</li>
-                </ul>
-                <p>You don't need to be a math whiz. You don't need a six-figure salary. You just need a starting point — and that's exactly what this site is.</p>
-            </div>
+                <a href="saving-strategy.html" class="post-card">
+                    <div class="post-tag">My Story</div>
+                    <div class="post-title">How I Saved $20,000 in 12 Months</div>
+                    <div class="post-excerpt">The real framework — SMART goals, the Debt Binder method, quarterly check-ins, and the mindset shift that turned a $12K goal into nearly $20K saved.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
 
-            <div class="glass-card">
-                <h2>What You'll Find Here</h2>
-                <p>Beyond the free financial calculators, you'll find in-depth blog posts covering the strategies that actually worked for me: building a one-month buffer so you stop living paycheck to paycheck, setting up sinking funds so "unexpected" expenses stop blindsiding you, building a starter emergency fund even when money is tight, and avoiding the most common mistakes that keep people broke even when they're trying hard.</p>
-                <p>I'm not a licensed financial advisor, and nothing on this site is professional financial advice. But I am someone who has been in the trenches, made the mistakes, and come out the other side with a clear head, a funded savings account, and a system I genuinely believe in. I think that experience counts for a lot.</p>
-                <p>If you have questions, want to share your own budgeting journey, or just want to say hi, I'd love to hear from you. Head over to the <a href="contact.html" style="color: var(--gold); text-decoration: none;">Contact page</a> and reach out.</p>
-                <p>Welcome to Hey Kay Budgets. Let's get your finances to a place where you can breathe again.</p>
+                <a href="safety-net.html" class="post-card">
+                    <div class="post-tag">Emergency Savings</div>
+                    <div class="post-title">Building a Tiny Safety Net: Your First $500 Emergency Fund</div>
+                    <div class="post-excerpt">You don't need $1,000 or three months of expenses to start. Here's how to build your first safety net in four practical milestones — starting this week.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
+
+                <a href="mistakes.html" class="post-card">
+                    <div class="post-tag">Budgeting Tips</div>
+                    <div class="post-title">5 Budgeting Mistakes That Keep You Broke</div>
+                    <div class="post-excerpt">Most people who struggle with money aren't lazy — they're using the wrong system. Here are the five mistakes that quietly sabotage even the best intentions.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
+
             </div>
         </div>
 
