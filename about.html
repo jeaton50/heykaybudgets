@@ -32,7 +32,6 @@
         "url": "https://www.heykaybudgets.com/about.html",
         "sameAs": ["https://www.youtube.com/@HeyKayBudgets"]
       }
-    }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,10 +80,6 @@
             position: absolute; inset: 0;
             background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
             background-size: 44px 44px;
-        }
-            33%  { transform: translate(50px,-40px) scale(1.06); }
-            66%  { transform: translate(-40px,30px) scale(0.94); }
-            100% { transform: translate(0,0) scale(1); }
         }
 
         .site-wrap { position: relative; z-index: 1; }
@@ -200,9 +195,11 @@
         .footer-copy { font-size: 0.75rem; color: rgba(240,244,255,0.25); }
 
         @media (max-width: 640px) {
+            .logo-img { max-height: 80px; width: auto; }
+            .site-header { padding: 12px 16px 10px; }
+
             h1 { font-size: 1.7rem; }
             .glass-card { padding: 22px 18px; }
-        }
         .site-nav { text-align: center; padding: 10px 20px 14px; }
         .site-nav a { display: inline-block; color: rgba(240,244,255,0.55); text-decoration: none; font-size: 0.83rem; font-weight: 500; padding: 5px 14px; border-radius: 20px; margin: 2px 3px; transition: color 0.2s, background 0.2s; }
         .site-nav a:hover, .site-nav a.nav-active { color: var(--gold); background: rgba(245,197,24,0.10); }

@@ -51,7 +51,6 @@
             "name": "Kay",
             "url": "https://www.heykaybudgets.com/about.html"
           }
-        }
       ]
     }
     </script>
@@ -107,10 +106,6 @@
             position: absolute; inset: 0;
             background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
             background-size: 44px 44px;
-        }
-            33%  { transform: translate(55px,-45px) scale(1.06); }
-            66%  { transform: translate(-45px,35px) scale(0.94); }
-            100% { transform: translate(0,0) scale(1); }
         }
 
         /* ── Layout ── */
@@ -173,16 +168,7 @@
             box-shadow: 0 0 0 3px rgba(245,197,24,0.14);
         }
 
-        /* ── 3D Cube Page Transitions ── */
         html { overflow-x: hidden; }
-        body {
- 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-            transform-origin: left center;
-        }
-        body.page-exit {
-            animation: 
-            transform-origin: right center;
-        }
 
         /* ── Nav ── */
         .nav-wrap { text-align: center; margin-bottom: 30px; }
@@ -341,8 +327,6 @@
             background: linear-gradient(90deg, transparent, rgba(245,197,24,0.3), transparent);
         }
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
         }
         .res-card h3 {
             font-size: 1.15rem; font-weight: 700; margin-bottom: 18px;
@@ -469,11 +453,13 @@
 
         /* ── Responsive ── */
         @media (max-width: 640px) {
+            .logo-img { max-height: 80px; width: auto; }
+            .site-header { padding: 12px 16px 10px; }
+
             h1 { font-size: 1.7rem; }
             .act-btns { flex-direction: column; align-items: stretch; }
             .act-btns button, .act-btns a { width: 100%; }
             .chart-box { flex: 0 0 100%; max-width: 220px; margin: 0 auto; }
-        }
 
         /* ── Educational Content ── */
         .content-section {
@@ -830,7 +816,6 @@
                 if (op > ob) op = ob;
                 ob = r2(ob - op);
                 if (ob <= 0) { origM = m; break; }
-            }
             var bal = d.bal, sc = [];
             for (var m = 1; m < 1000; m++) {
                 var i = r2(bal * mr), p = r2(tot - i), pay = tot;
@@ -870,7 +855,6 @@
             if (allDebts.length > 1) {
                 renderOverviewChart(out, allDebts, sym);
             }
-        }
 
         var COLORS = ['#f5c518','#00d4ff','#00e676','#ff4757','#a855f7','#ff9f43','#26de81','#fd79a8'];
 
@@ -941,7 +925,6 @@
                                         if (ctx.datasetIndex === 0) return ' ' + ctx.raw + ' months (' + Math.ceil(ctx.raw/12) + ' yrs)';
                                         return ' ' + getSym() + parseFloat(ctx.raw).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' interest';
                                     }
-                                }
                             }
                         },
                         scales: {
@@ -961,9 +944,7 @@
                             x: {
                                 grid: { display: false },
                                 ticks: { color: 'rgba(255,255,255,0.7)', font: { size: 12, weight: '600' } }
-                            }
                         }
-                    }
                 });
             }, 60);
         }
@@ -1032,9 +1013,7 @@
                                 borderColor: 'rgba(245,197,24,0.3)', borderWidth: 1,
                                 titleColor: '#fff', bodyColor: 'rgba(255,255,255,0.7)',
                                 callbacks: { label: function(ctx) { return ' ' + fmt(ctx.raw, sym); } }
-                            }
                         }
-                    }
                 });
             }, 60);
         }
@@ -1050,14 +1029,6 @@
         // Page transition on nav button click
 
         document.querySelectorAll('a.nav-btn').forEach(function(link) {
-            link.addEventListener('click', function(e) {
-                var href = this.getAttribute('href');
-                if (href && !href.startsWith('#') && !href.startsWith('http')) {
-                    e.preventDefault();
-                    document.body.classList.add('page-exit');
-                    setTimeout(function() { window.location.href = href; }, 300);
-                }
-            });
         });
     </script>
 
