@@ -54,11 +54,7 @@
                 radial-gradient(ellipse 50% 40% at 50% 50%, rgba(17,24,39,0.9) 0%, var(--bg) 100%);
         }
         .bg-grid { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 44px 44px; }
-        .orb { position: absolute; border-radius: 50%; filter: blur(110px); opacity: 0.35; animation: orbFloat linear infinite; }
-        .orb1 { width: 600px; height: 600px; background: rgba(245,197,24,0.12); top: -200px; left: -100px; animation-duration: 30s; }
-        .orb2 { width: 500px; height: 500px; background: rgba(0,212,255,0.10); bottom: -150px; right: -120px; animation-duration: 36s; animation-direction: reverse; }
-        @keyframes orbFloat {
-            0% { transform: translate(0,0) scale(1); } 33% { transform: translate(50px,-40px) scale(1.06); }
+33% { transform: translate(50px,-40px) scale(1.06); }
             66% { transform: translate(-40px,30px) scale(0.94); } 100% { transform: translate(0,0) scale(1); }
         }
         .site-wrap { position: relative; z-index: 1; }
@@ -151,7 +147,6 @@
     <amp-auto-ads type="adsense" data-ad-client="ca-pub-9306267160220923"></amp-auto-ads>
     <div class="bg-scene">
         <div class="bg-gradient"></div><div class="bg-grid"></div>
-        <div class="orb orb1"></div><div class="orb orb2"></div>
     </div>
     <div class="site-wrap">
         <header class="site-header">
