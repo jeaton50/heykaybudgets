@@ -16,7 +16,14 @@
     <meta property="og:url" content="https://www.heykaybudgets.com/terms.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Hey Kay Budgets" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="preload" href="/static/logo.png" as="image">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -208,7 +215,10 @@
     <div class="site-wrap">
         <header class="site-header">
             <a href="index.html" class="logo-link">
-                <img class="logo-img" src="static/logo.png" alt="Hey Kay Budgets">
+                <picture>
+                  <source srcset="/static/logo.webp" type="image/webp">
+                  <img class="logo-img" src="/static/logo.png" alt="Hey Kay Budgets" width="1360" height="768">
+                </picture>
             </a>
         </header>
 
