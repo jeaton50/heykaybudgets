@@ -587,7 +587,81 @@
         .ck-yes { background: linear-gradient(135deg, var(--gold), #c99a00); color: #07090f; border: none; padding: 8px 22px; border-radius: 20px; font-weight: 700; font-size: 0.82rem; cursor: pointer; font-family: inherit; }
         .ck-no { background: transparent; color: rgba(240,244,255,0.45); border: 1px solid rgba(255,255,255,0.15); padding: 8px 18px; border-radius: 20px; font-size: 0.82rem; cursor: pointer; font-family: inherit; transition: color 0.2s; }
         .ck-yes:hover { filter: brightness(1.1); } .ck-no:hover { color: rgba(240,244,255,0.75); }
+
+.email-signup {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 60px 20px;
+  text-align: center;
+  margin: 40px 0;
+  border-radius: 12px;
+}
+.signup-inner { max-width: 540px; margin: 0 auto; }
+.email-signup h2 { color: #fff; font-size: 1.8rem; margin-bottom: 12px; }
+.email-signup p { color: #aaa; margin-bottom: 24px; }
+.signup-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.signup-form input[type="email"] {
+  padding: 14px 18px; border-radius: 8px; border: none;
+  font-size: 1rem; width: 280px; outline: none;
+}
+.signup-form button {
+  padding: 14px 24px; background: #e91e8c; color: #fff;
+  border: none; border-radius: 8px; font-size: 1rem;
+  cursor: pointer; font-weight: 600; white-space: nowrap;
+}
+.signup-form button:hover { background: #c0176e; }
+.signup-note { color: #666; font-size: 0.85rem; margin-top: 12px; }
     </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Debt Payoff Calculator",
+  "url": "https://www.heykaybudgets.com/",
+  "description": "Free debt payoff calculator — enter your debts and see exactly when you'll be debt-free, how much interest you'll pay, and how extra payments speed things up.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does paying the minimum take so long?",
+      "acceptedAnswer": {"@type": "Answer", "text": "When you carry a balance on a high-interest credit card, the minimum payment is often 1\u20132% of your balance. At a 20%+ APR, most of that payment goes to interest \u2014 on a $5,000 balance at 24.99% with a $100 minimum, it can take over 9 years to pay off."}
+    },
+    {
+      "@type": "Question",
+      "name": "Should I pay off debt or build an emergency fund first?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Most financial experts recommend building a small starter emergency fund of $1,000 before aggressively paying down debt. Once you have that buffer, focus on high-interest debt."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does my credit score go up when I pay off debt?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes, in most cases. Your credit utilization ratio is one of the biggest factors in your score. Paying down revolving debt (credit cards) typically improves your score fairly quickly."}
+    },
+    {
+      "@type": "Question",
+      "name": "What if my minimum payment doesn't cover the interest?",
+      "acceptedAnswer": {"@type": "Answer", "text": "This is called a negatively amortizing loan \u2014 your balance grows each month even when you make payments. Contact your lender immediately to restructure the payment, or consider a balance transfer to a lower-rate card."}
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Hey Kay Budgets",
+  "url": "https://www.heykaybudgets.com",
+  "logo": "https://www.heykaybudgets.com/static/logo.png",
+  "sameAs": ["https://www.youtube.com/@HeyKayBudgets"]
+}
+</script>
 </head>
 <body>
     <amp-auto-ads type="adsense"
@@ -693,6 +767,19 @@
                 <li style="margin-bottom:10px;"><a href="safety-net.html" style="color:#00d4ff; text-decoration:none; font-family:'Inter',sans-serif; font-size:0.92rem;">&#8594; Building a Tiny Safety Net: Your First $500 Emergency Fund</a></li>
                 <li style="margin-bottom:10px;"><a href="mistakes.html" style="color:#00d4ff; text-decoration:none; font-family:'Inter',sans-serif; font-size:0.92rem;">&#8594; 5 Budgeting Mistakes That Keep You Broke (And How to Fix Them)</a></li>
             </ul>
+        </section>
+
+        <section class="email-signup">
+          <div class="signup-inner">
+            <h2>Get the Free Debt Payoff Worksheet</h2>
+            <p>Enter your email and I'll send you a printable debt tracking worksheet &mdash; plus weekly budgeting tips straight from the Hey Kay Budgets community.</p>
+            <form class="signup-form" action="https://formspree.io/f/PLACEHOLDER" method="POST">
+              <input type="email" name="email" placeholder="Your email address" required>
+              <button type="submit">Send Me the Worksheet</button>
+              <input type="hidden" name="_subject" value="New Hey Kay Budgets subscriber">
+            </form>
+            <p class="signup-note">No spam. Unsubscribe anytime.</p>
+          </div>
         </section>
 
         <footer class="site-footer">
