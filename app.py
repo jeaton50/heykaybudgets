@@ -55,6 +55,28 @@ def get_ip_info(ip_address):
         return 'Unknown', 'Unknown'
 
 # Log IP info before each request
+@app.after_request
+def add_security_headers(response):
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+    response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+    response.headers['Content-Security-Policy'] = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' "
+            "https://*.googlesyndication.com https://*.ampproject.org "
+            "https://*.googletagmanager.com https://*.googleapis.com "
+            "https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; "
+        "font-src 'self' data: https://fonts.gstatic.com; "
+        "img-src 'self' data: blob: https:; "
+        "connect-src 'self' https:; "
+        "frame-src https://*.doubleclick.net https://*.google.com https://*.googlesyndication.com; "
+        "object-src 'none';"
+    )
+    return response
+
+
+# Log IP info before each request
 @app.before_request
 def log_request_info():
     # Get the user's IP address
