@@ -913,6 +913,7 @@
                 if (op > ob) op = ob;
                 ob = r2(ob - op);
                 if (ob <= 0) { origM = m; break; }
+            }
             var bal = d.bal, sc = [];
             for (var m = 1; m < 1000; m++) {
                 var i = r2(bal * mr), p = r2(tot - i), pay = tot;
@@ -952,8 +953,9 @@
             if (allDebts.length > 1) {
                 renderOverviewChart(out, allDebts, sym);
             }
+        }
 
-        var COLORS = ['#f5c518','#00d4ff','#00e676','#ff4757','#a855f7','#ff9f43','#26de81','#fd79a8'];
+        var COLORS =['#f5c518','#00d4ff','#00e676','#ff4757','#a855f7','#ff9f43','#26de81','#fd79a8'];
 
         function renderOverviewChart(container, allDebts, sym) {
             var ovDiv = document.createElement('div');
@@ -1041,7 +1043,10 @@
                             x: {
                                 grid: { display: false },
                                 ticks: { color: 'rgba(255,255,255,0.7)', font: { size: 12, weight: '600' } }
-                        }
+                            }
+                        },
+                    },
+                }
                 });
             }, 60);
         }
@@ -1110,7 +1115,9 @@
                                 borderColor: 'rgba(245,197,24,0.3)', borderWidth: 1,
                                 titleColor: '#fff', bodyColor: 'rgba(255,255,255,0.7)',
                                 callbacks: { label: function(ctx) { return ' ' + fmt(ctx.raw, sym); } }
-                        }
+                            }
+                        },
+                    }
                 });
             }, 60);
         }
