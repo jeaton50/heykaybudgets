@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SF7EQT5LF7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SF7EQT5LF7');
+</script>
     <meta charset="UTF-8">
-    <meta name="google-adsense-account" content="ca-pub-9306267160220923">
+        <meta name="robots" content="index, follow">
+<meta name="google-adsense-account" content="ca-pub-9306267160220923">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9306267160220923"
      crossorigin="anonymous"></script>
     <script async custom-element="amp-auto-ads"
@@ -11,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Finance Blog — Hey Kay Budgets</title>
     <meta name="description" content="Budgeting tips, saving strategies, and personal finance guides from Hey Kay Budgets. Real advice that helps you take control of your money.">
-    <link rel="canonical" href="https://www.heykaybudgets.com/blog.html" />
+    <link rel="canonical" href="https://www.heykaybudgets.com/blog" />
     <meta property="og:title" content="Blog — Hey Kay Budgets" />
     <meta property="og:description" content="Budgeting tips, saving strategies, and personal finance guides from Hey Kay Budgets." />
     <meta property="og:url" content="https://www.heykaybudgets.com/blog.html" />
@@ -30,9 +39,15 @@
         "name": "Hey Kay Budgets",
         "url": "https://www.heykaybudgets.com"
       }
-    }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="preload" href="/static/logo.png" as="image">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -70,19 +85,6 @@
             position: absolute; inset: 0;
             background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
             background-size: 44px 44px;
-        }
-        .orb {
-            position: absolute; border-radius: 50%;
-            filter: blur(110px); opacity: 0.35;
-            animation: orbFloat linear infinite;
-        }
-        .orb1 { width: 600px; height: 600px; background: rgba(245,197,24,0.12); top: -200px; left: -100px; animation-duration: 30s; }
-        .orb2 { width: 500px; height: 500px; background: rgba(0,212,255,0.10); bottom: -150px; right: -120px; animation-duration: 36s; animation-direction: reverse; }
-        @keyframes orbFloat {
-            0%   { transform: translate(0,0) scale(1); }
-            33%  { transform: translate(50px,-40px) scale(1.06); }
-            66%  { transform: translate(-40px,30px) scale(0.94); }
-            100% { transform: translate(0,0) scale(1); }
         }
 
         .site-wrap { position: relative; z-index: 1; }
@@ -196,6 +198,9 @@
         .footer-copy { font-size: 0.75rem; color: rgba(240,244,255,0.25); }
 
         @media (max-width: 640px) {
+            .logo-img { max-height: 80px; width: auto; }
+            .site-header { padding: 12px 16px 10px; }
+
             h1 { font-size: 1.7rem; }
             .post-card { padding: 20px 18px; }
         }
@@ -219,8 +224,6 @@
     <div class="bg-scene">
         <div class="bg-gradient"></div>
         <div class="bg-grid"></div>
-        <div class="orb orb1"></div>
-        <div class="orb orb2"></div>
     </div>
 
     <div class="site-wrap">
@@ -246,6 +249,22 @@
             <p class="subtitle">Practical budgeting tips and personal finance guides from Kay</p>
 
             <div class="post-grid">
+                <a href="zero-based-budget-categories.html" class="post-card">
+                    <div class="post-tag">Zero-Based Budgeting</div>
+                    <div class="post-title">Zero Based Budget Categories: The Complete List to Get Started</div>
+                    <div class="post-excerpt">Every dollar gets a job in a zero-based budget — but first you need the right categories. Here&#39;s the complete list organized by type, with realistic benchmarks for each.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
+
+
+
+                
+                <a href="zero-based-budget.html" class="post-card">
+                    <div class="post-tag">Budgeting Basics</div>
+                    <div class="post-title">What Is Zero Based Budgeting? (And How to Build One)</div>
+                    <div class="post-excerpt">Zero based budgeting gives every dollar a job before the month begins. Here's how it works, what categories to use, and how to start your first ZBB in 30 minutes.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
 
                 <a href="buffer.html" class="post-card">
                     <div class="post-tag">Personal Finance</div>
@@ -279,6 +298,48 @@
                     <div class="post-tag">Budgeting Tips</div>
                     <div class="post-title">5 Budgeting Mistakes That Keep You Broke</div>
                     <div class="post-excerpt">Most people who struggle with money aren't lazy — they're using the wrong system. Here are the five mistakes that quietly sabotage even the best intentions.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
+
+                <a href="sinking-fund-categories.html" class="post-card">
+                    <div class="post-tag">Sinking Funds</div>
+                    <div class="post-title">50+ Sinking Fund Categories: The Ultimate List for Every Budget</div>
+                    <div class="post-excerpt">From home repairs to holiday gifts, here are 50+ sinking fund categories organized by type so you can build a savings system that covers every irregular expense.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
+
+                <a href="sinking-fund-examples.html" class="post-card">
+                    <div class="post-tag">Sinking Funds</div>
+                    <div class="post-title">Sinking Fund Examples: Real-Life Scenarios That Actually Work</div>
+                    <div class="post-excerpt">See 12+ real sinking fund examples with actual dollar amounts and monthly math — car repairs, vacations, holidays, and more. Copy the ones that fit your life.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
+
+                <a href="sinking-fund-examples-families.html" class="post-card">
+                    <div class="post-tag">Sinking Funds</div>
+                    <div class="post-title">Sinking Fund Examples for Families: How to Budget for Every Expense</div>
+                    <div class="post-excerpt">Kids' activities, back-to-school, vacations, medical bills — real sinking fund examples for families with actual dollar amounts and sample household budget breakdowns.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
+
+                <a href="emergency-fund-vs-sinking-fund.html" class="post-card">
+                    <div class="post-tag">Budgeting Basics</div>
+                    <div class="post-title">Emergency Fund vs Sinking Fund: What&#39;s the Difference and Which Comes First?</div>
+                    <div class="post-excerpt">These two savings tools are often confused — but they serve completely different jobs. Here&#39;s a clear breakdown of when to use each and in what order to build them.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
+
+                <a href="how-much-sinking-fund.html" class="post-card">
+                    <div class="post-tag">Sinking Funds</div>
+                    <div class="post-title">How Much Should You Put in a Sinking Fund? A Simple Formula</div>
+                    <div class="post-excerpt">One formula answers every sinking fund contribution question. Here&#39;s the math, worked examples for six categories, and rule-of-thumb percentages for the hard ones.</div>
+                    <div class="post-read-more">Read article &rarr;</div>
+                </a>
+
+                <a href="sinking-fund-budget-categories.html" class="post-card">
+                    <div class="post-tag">Sinking Funds</div>
+                    <div class="post-title">The Best Budget Categories for Sinking Funds (and How to Start Each One)</div>
+                    <div class="post-excerpt">The 15 budget categories most worth turning into sinking funds, why each one matters, and how to set them up inside a zero-based budget. Practical from day one.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
