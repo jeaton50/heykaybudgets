@@ -289,6 +289,58 @@ def budgeting_mistakes():
 def blog():
     return send_from_directory('.', 'blog.html')
 
+@app.route('/saving-strategy')
+def saving_strategy_clean():
+    return send_from_directory('.', 'saving-strategy.html')
+
+@app.route('/buffer')
+def buffer_clean():
+    return send_from_directory('.', 'buffer.html')
+
+@app.route('/mistakes')
+def mistakes_clean():
+    return send_from_directory('.', 'mistakes.html')
+
+@app.route('/sinking-funds')
+def sinking_funds_clean():
+    return send_from_directory('.', 'sinking-funds.html')
+
+@app.route('/safety-net')
+def safety_net_clean():
+    return send_from_directory('.', 'safety-net.html')
+
+@app.route('/sinking-fund-categories')
+def sinking_fund_categories():
+    return send_from_directory('.', 'sinking-fund-categories.html')
+
+@app.route('/sinking-fund-examples')
+def sinking_fund_examples():
+    return send_from_directory('.', 'sinking-fund-examples.html')
+
+@app.route('/sinking-fund-budget-categories')
+def sinking_fund_budget_categories():
+    return send_from_directory('.', 'sinking-fund-budget-categories.html')
+
+@app.route('/emergency-fund-vs-sinking-fund')
+def emergency_fund_vs_sinking_fund():
+    return send_from_directory('.', 'emergency-fund-vs-sinking-fund.html')
+
+@app.route('/how-much-sinking-fund')
+def how_much_sinking_fund():
+    return send_from_directory('.', 'how-much-sinking-fund.html')
+
+@app.route('/sinking-fund-examples-families')
+def sinking_fund_examples_families():
+    return send_from_directory('.', 'sinking-fund-examples-families.html')
+
+@app.route('/zero-based-budget')
+def zero_based_budget():
+    return send_from_directory('.', 'zero-based-budget.html')
+
+@app.route('/zero-based-budget-categories')
+def zero_based_budget_categories():
+    return send_from_directory('.', 'zero-based-budget-categories.html')
+
 
 # Route for Debt Payoff Calculator
 @app.route('/', methods=['GET', 'POST'])
