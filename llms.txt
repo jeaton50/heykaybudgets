@@ -1,32 +1,33 @@
 # Hey Kay Budgets
 
-> Free financial calculators and practical budgeting guides for everyday people — written by Kay from real personal experience.
+> Free financial calculators and practical budgeting guides for everyday people - written by Kay from real personal experience.
 
 ## About
 
-Hey Kay Budgets is a personal finance website built by Kay, who went from living paycheck to paycheck to saving nearly $20,000 in a single year. The site provides free online calculator tools and in-depth budgeting guides written from direct experience — not theory.
+Hey Kay Budgets is a personal finance website built by Kay, who went from living paycheck to paycheck to saving nearly $20,000 in a single year. The site provides free online calculator tools and in-depth budgeting guides written from direct experience - not theory.
 
 The audience is everyday people who want to understand their money better: people dealing with debt, people trying to build their first emergency fund, and people trying to stop the paycheck-to-paycheck cycle. No finance degree required.
 
 ## Free Tools
 
-- **Debt Payoff Calculator** — Enter multiple debts to see an amortization schedule, compare the avalanche vs. snowball payoff methods, see how extra payments reduce interest and time to payoff, and export results to Excel. URL: https://www.heykaybudgets.com/
-- **Mortgage Calculator** — Enter loan amount, rate, term, escrow, and extra payment to see a full amortization schedule and compare standard vs. accelerated payoff. URL: https://www.heykaybudgets.com/mortgage.html
+- **Debt Payoff Calculator** - Enter multiple debts to see an amortization schedule, compare the avalanche vs. snowball payoff methods, see how extra payments reduce interest and time to payoff, and export results to Excel. URL: https://www.heykaybudgets.com/
+- **Mortgage Calculator** - Enter loan amount, rate, term, escrow, and extra payment to see a full amortization schedule and compare standard vs. accelerated payoff. URL: https://www.heykaybudgets.com/mortgage
 
 ## Blog Posts & Guides
 
-- **How to Get One Month Ahead on Your Budget** — Step-by-step guide to building a one-month income buffer so you stop living paycheck to paycheck. URL: https://www.heykaybudgets.com/buffer.html
-- **Sinking Funds 101** — What sinking funds are, how to calculate contributions, which categories matter most, and where to keep them. URL: https://www.heykaybudgets.com/sinking-funds.html
-- **How I Saved $20,000 in 12 Months** — Personal story of Kay's savings journey including the SMART goal framework, the Debt Binder method, and the mindset shift that made it stick. URL: https://www.heykaybudgets.com/saving-strategy.html
-- **Building a Tiny Safety Net** — Why $500 is the most important savings milestone and how to reach it even on a tight budget. URL: https://www.heykaybudgets.com/safety-net.html
-- **5 Budgeting Mistakes That Keep You Broke** — Detailed breakdown of the five most common budgeting mistakes with specific fixes for each. URL: https://www.heykaybudgets.com/mistakes.html
+- **Budget Buffer Guide** - How to build a small checking account buffer so bill timing and small overages do not create overdrafts or new debt. URL: https://www.heykaybudgets.com/buffer
+- **Sinking Fund Categories: 50+ Examples for Beginners** - Beginner guide with real sinking fund categories, monthly examples, a category table, tracking tips, and FAQs. URL: https://www.heykaybudgets.com/sinking-funds
+- **How to Get One Month Ahead on Bills** - Step-by-step beginner saving strategy for building a budget buffer, saving one bill at a time, and protecting next month's money. URL: https://www.heykaybudgets.com/saving-strategy
+- **Building a Tiny Safety Net** - Why $500 is the most important savings milestone and how to reach it even on a tight budget. URL: https://www.heykaybudgets.com/safety-net
+- **5 Budgeting Mistakes That Keep You Broke** - Detailed breakdown of the five most common budgeting mistakes with specific fixes for each. URL: https://www.heykaybudgets.com/mistakes
 
 ## Site Pages
 
-- About: https://www.heykaybudgets.com/about.html
-- Contact: https://www.heykaybudgets.com/contact.html
-- Privacy Policy: https://www.heykaybudgets.com/privacy.html
-- Terms of Service: https://www.heykaybudgets.com/terms.html
+- About: https://www.heykaybudgets.com/about
+- Contact: https://www.heykaybudgets.com/contact
+- Privacy Policy: https://www.heykaybudgets.com/privacy
+- Terms of Service: https://www.heykaybudgets.com/terms
+- Disclaimer: https://www.heykaybudgets.com/disclaimer
 
 ## Contact
 
