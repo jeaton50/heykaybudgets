@@ -1,0 +1,29 @@
+# Canonical domain redirects
+http://heykaybudgets.com/*      https://www.heykaybudgets.com/:splat      301!
+http://www.heykaybudgets.com/*  https://www.heykaybudgets.com/:splat      301!
+https://heykaybudgets.com/*     https://www.heykaybudgets.com/:splat      301!
+
+# Canonical clean URL redirects
+/index.html                              /                                  301!
+/about.html                              /about                             301!
+/blog.html                               /blog                              301!
+/buffer.html                             /buffer                            301!
+/contact.html                            /contact                           301!
+/disclaimer.html                         /disclaimer                        301!
+/emergency-fund-vs-sinking-fund.html     /emergency-fund-vs-sinking-fund    301!
+/how-much-sinking-fund.html              /how-much-sinking-fund             301!
+/mistakes.html                           /mistakes                          301!
+/mortgage.html                           /mortgage                          301!
+/privacy.html                            /privacy                           301!
+/safety-net.html                         /safety-net                        301!
+/saving-strategy.html                    /saving-strategy                   301!
+/sinking-fund-budget-categories.html     /sinking-fund-budget-categories    301!
+/sinking-fund-categories.html            /sinking-fund-categories           301!
+/sinking-fund-examples-families.html     /sinking-fund-examples-families    301!
+/sinking-fund-examples.html              /sinking-fund-examples             301!
+/sinking-funds.html                      /sinking-funds                     301!
+/terms.html                              /terms                             301!
+/zero-based-budget-categories.html       /zero-based-budget-categories      301!
+/zero-based-budget-examples.html         /zero-based-budget-examples        301!
+/zero-based-budget-template.html         /zero-based-budget-template        301!
+/zero-based-budget.html                  /zero-based-budget                 301!
