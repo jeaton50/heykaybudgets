@@ -289,6 +289,18 @@ def budgeting_mistakes():
 def blog():
     return send_from_directory('.', 'blog.html')
 
+@app.route('/beginner-budgeting')
+def beginner_budgeting_clean():
+    return send_from_directory('.', 'beginner-budgeting.html')
+
+@app.route('/paycheck-budget')
+def paycheck_budget_clean():
+    return send_from_directory('.', 'paycheck-budget.html')
+
+@app.route('/monthly-budget-checklist')
+def monthly_budget_checklist_clean():
+    return send_from_directory('.', 'monthly-budget-checklist.html')
+
 @app.route('/saving-strategy')
 def saving_strategy_clean():
     return send_from_directory('.', 'saving-strategy.html')

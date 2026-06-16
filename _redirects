@@ -6,6 +6,7 @@ https://heykaybudgets.com/*     https://www.heykaybudgets.com/:splat      301!
 # Canonical clean URL redirects
 /index.html                              /                                  301!
 /about.html                              /about                             301!
+/beginner-budgeting.html                 /beginner-budgeting                301!
 /blog.html                               /blog                              301!
 /buffer.html                             /buffer                            301!
 /contact.html                            /contact                           301!
@@ -14,6 +15,8 @@ https://heykaybudgets.com/*     https://www.heykaybudgets.com/:splat      301!
 /how-much-sinking-fund.html              /how-much-sinking-fund             301!
 /mistakes.html                           /mistakes                          301!
 /mortgage.html                           /mortgage                          301!
+/monthly-budget-checklist.html           /monthly-budget-checklist          301!
+/paycheck-budget.html                    /paycheck-budget                   301!
 /privacy.html                            /privacy                           301!
 /safety-net.html                         /safety-net                        301!
 /saving-strategy.html                    /saving-strategy                   301!
