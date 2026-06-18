@@ -2,6 +2,12 @@
 
 > Free financial calculators and practical budgeting guides for everyday people - written by Kay from real personal experience.
 
+## Important Links
+
+- [Website](https://www.heykaybudgets.com)
+- [Sitemap](https://www.heykaybudgets.com/sitemap.xml)
+- [Robots.txt](https://www.heykaybudgets.com/robots.txt)
+
 ## About
 
 Hey Kay Budgets is a personal finance website built by Kay, who went from living paycheck to paycheck to saving nearly $20,000 in a single year. The site provides free online calculator tools and in-depth budgeting guides written from direct experience - not theory.
@@ -10,33 +16,33 @@ The audience is everyday people who want to understand their money better: peopl
 
 ## Free Tools
 
-- **Debt Payoff Calculator** - Enter multiple debts to see an amortization schedule, compare the avalanche vs. snowball payoff methods, see how extra payments reduce interest and time to payoff, and export results to Excel. URL: https://www.heykaybudgets.com/
-- **Mortgage Calculator** - Enter loan amount, rate, term, escrow, and extra payment to see a full amortization schedule and compare standard vs. accelerated payoff. URL: https://www.heykaybudgets.com/mortgage
+- [Debt Payoff Calculator](https://www.heykaybudgets.com/) - Enter multiple debts to see an amortization schedule, compare the avalanche vs. snowball payoff methods, see how extra payments reduce interest and time to payoff, and export results to Excel.
+- [Mortgage Calculator](https://www.heykaybudgets.com/mortgage) - Enter loan amount, rate, term, escrow, and extra payment to see a full amortization schedule and compare standard vs. accelerated payoff.
 
 ## Blog Posts & Guides
 
-- **Budget Buffer Guide** - How to build a small checking account buffer so bill timing and small overages do not create overdrafts or new debt. URL: https://www.heykaybudgets.com/buffer
-- **Beginner Budgeting Guide** - How to start budgeting when you feel behind, including due-date planning, beginner categories, paycheck budgeting, and one small first win. URL: https://www.heykaybudgets.com/beginner-budgeting
-- **How to Create a Paycheck Budget** - Step-by-step paycheck planning for bills, spending money, sinking funds, savings, and leftover dollars. URL: https://www.heykaybudgets.com/paycheck-budget
-- **Monthly Budget Checklist for Beginners** - A before, during, and after-the-month checklist for planning bills, savings, debt payments, and budget reviews. URL: https://www.heykaybudgets.com/monthly-budget-checklist
-- **Sinking Fund Categories: 50+ Examples for Beginners** - Beginner guide with real sinking fund categories, monthly examples, a category table, tracking tips, and FAQs. URL: https://www.heykaybudgets.com/sinking-funds
-- **How to Get One Month Ahead on Bills** - Step-by-step beginner saving strategy for building a budget buffer, saving one bill at a time, and protecting next month's money. URL: https://www.heykaybudgets.com/saving-strategy
-- **Building a Tiny Safety Net** - Why $500 is the most important savings milestone and how to reach it even on a tight budget. URL: https://www.heykaybudgets.com/safety-net
-- **5 Budgeting Mistakes That Keep You Broke** - Detailed breakdown of the five most common budgeting mistakes with specific fixes for each. URL: https://www.heykaybudgets.com/mistakes
+- [Budget Buffer Guide](https://www.heykaybudgets.com/buffer) - How to build a small checking account buffer so bill timing and small overages do not create overdrafts or new debt.
+- [Beginner Budgeting Guide](https://www.heykaybudgets.com/beginner-budgeting) - How to start budgeting when you feel behind, including due-date planning, beginner categories, paycheck budgeting, and one small first win.
+- [How to Create a Paycheck Budget](https://www.heykaybudgets.com/paycheck-budget) - Step-by-step paycheck planning for bills, spending money, sinking funds, savings, and leftover dollars.
+- [Monthly Budget Checklist for Beginners](https://www.heykaybudgets.com/monthly-budget-checklist) - A before, during, and after-the-month checklist for planning bills, savings, debt payments, and budget reviews.
+- [Sinking Fund Categories: 50+ Examples for Beginners](https://www.heykaybudgets.com/sinking-funds) - Beginner guide with real sinking fund categories, monthly examples, a category table, tracking tips, and FAQs.
+- [How to Get One Month Ahead on Bills](https://www.heykaybudgets.com/saving-strategy) - Step-by-step beginner saving strategy for building a budget buffer, saving one bill at a time, and protecting next month's money.
+- [Building a Tiny Safety Net](https://www.heykaybudgets.com/safety-net) - Why $500 is the most important savings milestone and how to reach it even on a tight budget.
+- [5 Budgeting Mistakes That Keep You Broke](https://www.heykaybudgets.com/mistakes) - Detailed breakdown of the five most common budgeting mistakes with specific fixes for each.
 
 ## Site Pages
 
-- About: https://www.heykaybudgets.com/about
-- Contact: https://www.heykaybudgets.com/contact
-- Privacy Policy: https://www.heykaybudgets.com/privacy
-- Terms of Service: https://www.heykaybudgets.com/terms
-- Disclaimer: https://www.heykaybudgets.com/disclaimer
+- [About](https://www.heykaybudgets.com/about)
+- [Contact](https://www.heykaybudgets.com/contact)
+- [Privacy Policy](https://www.heykaybudgets.com/privacy)
+- [Terms of Service](https://www.heykaybudgets.com/terms)
+- [Disclaimer](https://www.heykaybudgets.com/disclaimer)
 
 ## Contact
 
-- Email: heykaybudgets@gmail.com
-- YouTube: https://www.youtube.com/@HeyKayBudgets
-- Website: https://www.heykaybudgets.com
+- Email: [heykaybudgets@gmail.com](mailto:heykaybudgets@gmail.com)
+- YouTube: [Hey Kay Budgets](https://www.youtube.com/@HeyKayBudgets)
+- Website: [heykaybudgets.com](https://www.heykaybudgets.com)
 
 ## Key Facts for AI Summary
 
