@@ -1,24 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SF7EQT5LF7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SF7EQT5LF7');
-</script>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
         <meta name="robots" content="index, follow">
 <meta name='impact-site-verification' value='00cf5fc4-7343-4d25-a79f-8c78e347046e'>
     <meta name="google-adsense-account" content="ca-pub-9306267160220923">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9306267160220923"
-     crossorigin="anonymous"></script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Debt Payoff Calculator - Hey Kay Budgets</title>
     <meta name="description" content="Free debt payoff calculator. See exactly when you'll be debt-free, how much interest you'll pay, and how extra payments shorten your timeline.">
     <link rel="canonical" href="https://www.heykaybudgets.com/" />
@@ -64,16 +51,9 @@
       ]
     }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
-    <link rel="preload" href="/static/logo.webp" as="image">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="preload" href="/static/logo-280.webp" as="image" type="image/webp" fetchpriority="high" media="(max-width: 640px)">
+    <link rel="preload" href="/static/logo-500.webp" as="image" type="image/webp" fetchpriority="high" media="(min-width: 641px)">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -93,7 +73,7 @@
         }
 
         body {
-            font-family: 'Inter', Arial, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
@@ -132,9 +112,17 @@
             width: 70%; height: 1px;
             background: linear-gradient(90deg, transparent, rgba(245,197,24,0.25), rgba(0,212,255,0.2), transparent);
         }
-        .logo-link { display: block; width: fit-content; margin: 0 auto; transform: translateX(-10px); }
+        .logo-link {
+            display: block;
+            width: min(500px, calc(100vw - 40px));
+            aspect-ratio: 500 / 283;
+            margin: 0 auto;
+            transform: translateX(-10px);
+        }
         .logo-img {
-            max-width: 500px; width: 100%; height: auto;
+            display: block;
+            width: 100%; height: auto;
+            aspect-ratio: 500 / 283;
             filter: drop-shadow(0 0 22px rgba(245,197,24,0.28));
             transition: filter 0.35s, transform 0.35s;
         }
@@ -458,12 +446,13 @@
         }
         .footer-links a:hover { color: var(--gold); }
         .footer-copy {
-            font-size: 0.75rem; color: rgba(240,244,255,0.25);
+            font-size: 0.75rem; color: rgba(240,244,255,0.72);
         }
 
         /* ── Responsive ── */
         @media (max-width: 640px) {
-            .logo-img { max-height: 80px; width: auto; }
+            .logo-link { width: min(142px, calc(100vw - 32px)); }
+            .logo-img { width: 100%; height: auto; }
             .site-header { padding: 12px 16px 10px; }
 
             h1 { font-size: 1.7rem; }
@@ -607,11 +596,11 @@
   font-size: 1rem; width: 280px; outline: none;
 }
 .signup-form button {
-  padding: 14px 24px; background: #e91e8c; color: #fff;
+  padding: 14px 24px; background: #bd1169; color: #fff;
   border: none; border-radius: 8px; font-size: 1rem;
   cursor: pointer; font-weight: 600; white-space: nowrap;
 }
-.signup-form button:hover { background: #c0176e; }
+.signup-form button:hover { background: #9f0e58; }
 .signup-note { color: #666; font-size: 0.85rem; margin-top: 12px; }
     </style>
 
@@ -667,11 +656,7 @@
 </script>
 </head>
 <body>
-    <amp-auto-ads type="adsense"
-        data-ad-client="ca-pub-9306267160220923">
-    </amp-auto-ads>
-
-    <!-- Animated Background -->
+<!-- Animated Background -->
     <div class="bg-scene">
         <div class="bg-gradient"></div>
         <div class="bg-grid"></div>
@@ -683,8 +668,8 @@
         <header class="site-header">
             <a href="https://www.youtube.com/@HeyKayBudgets" target="_blank" rel="noopener noreferrer" class="logo-link">
                 <picture>
-                    <source srcset="static/logo.webp" type="image/webp">
-                    <img class="logo-img" src="static/logo.webp" alt="Hey Kay Budgets" width="800" height="452">
+                    <source srcset="static/logo-160.webp 160w, static/logo-280.webp 280w, static/logo-500.webp 500w" sizes="(max-width: 640px) 142px, 500px" type="image/webp">
+                    <img class="logo-img" src="static/logo-500.webp" srcset="static/logo-160.webp 160w, static/logo-280.webp 280w, static/logo-500.webp 500w" sizes="(max-width: 640px) 142px, 500px" alt="Hey Kay Budgets" width="500" height="283" fetchpriority="high" decoding="async">
                 </picture>
             </a>
         </header>
@@ -698,7 +683,7 @@
         </nav>
 
         <!-- Page -->
-        <div class="page">
+        <main class="page">
             <h1>Debt Payoff Calculator</h1>
             <p class="subtitle">Enter your debts below and see exactly when you'll be debt-free</p>
 
@@ -709,7 +694,6 @@
                     you'll find free calculators and beginner-friendly guides for debt payoff, sinking funds, saving strategies, budget buffers, and financial safety nets.
                 </p>
             </div>
-
 
             <div class="glass-card" style="margin-bottom:28px; padding:24px 30px;">
                 <h2 style="color:#f5c518; font-size:1.15rem; margin-bottom:12px; text-align:center;">Start Here</h2>
@@ -762,7 +746,7 @@
             </div>
 
             <div id="results"></div>
-        </div>
+        </main>
 
         <section style="max-width: 800px; margin: 40px auto; padding: 20px; font-family: sans-serif;">
             <h2 style="color:#f0f4ff; font-family:'Inter',sans-serif; font-size:1.2rem; font-weight:700; margin-bottom:10px;">Budgeting Tips &amp; Resources</h2>
@@ -810,6 +794,28 @@
         var csym = { usd:'$', eur:'\u20AC', gbp:'\u00A3', jpy:'\u00A5', cad:'$', aud:'$', mxn:'$' };
         var rowCount = 0;
         var chartInstances = {};
+        var appScripts = {};
+
+        function loadAppScript(src) {
+            if (appScripts[src]) return appScripts[src];
+            appScripts[src] = new Promise(function(resolve, reject) {
+                var script = document.createElement('script');
+                script.src = src;
+                script.async = true;
+                script.onload = resolve;
+                script.onerror = function() { reject(new Error('Could not load ' + src)); };
+                document.head.appendChild(script);
+            });
+            return appScripts[src];
+        }
+
+        function ensureChartJs() {
+            return window.Chart ? Promise.resolve() : loadAppScript('https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js');
+        }
+
+        function ensureXlsx() {
+            return window.XLSX ? Promise.resolve() : loadAppScript('https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js');
+        }
 
         function getSym() { return csym[document.getElementById('currency').value] || '$'; }
         function fmt(n, sym) { return sym + parseFloat(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
@@ -838,7 +844,7 @@
             addRow();
         }
 
-        function exportData() {
+        async function exportData() {
             var rows = document.querySelectorAll('#debt-rows tr');
             if (!rows.length) { alert('No data to export.'); return; }
             var sym = getSym();
@@ -853,6 +859,13 @@
                 debts.push({ name:name, bal:bal, rate:rate, min:min, ext:ext });
             });
             if (!debts.length) { alert('No debt data to export.'); return; }
+
+            try {
+                await ensureXlsx();
+            } catch(e) {
+                alert('The Excel export library could not load. Please check your connection and try again.');
+                return;
+            }
 
             var wb = XLSX.utils.book_new();
 
@@ -937,13 +950,19 @@
             return { sc: sc, origM: origM, origY: Math.ceil(origM/12), mo: sc.length, yr: Math.ceil(sc.length/12), saved: origM - sc.length };
         }
 
-        function calculate() {
+        async function calculate() {
             var sym = getSym(), out = document.getElementById('results');
             Object.values(chartInstances).forEach(function(c) { if(c) c.destroy(); });
             chartInstances = {};
             out.innerHTML = '';
             var rows = document.querySelectorAll('#debt-rows tr');
             if (!rows.length) { out.innerHTML = '<div class="err-box">Please add at least one debt.</div>'; return; }
+            try {
+                await ensureChartJs();
+            } catch(e) {
+                out.innerHTML = '<div class="err-box">The chart library could not load. Please check your connection and try again.</div>';
+                return;
+            }
 
             var allDebts = [];
             rows.forEach(function(row, idx) {
@@ -1360,9 +1379,6 @@
         <button class="ck-no" onclick="hkbCk('no')">Decline</button>
     </div>
 </div>
-<script>
-(function(){ if(localStorage.getItem('hkb_ck')) document.getElementById('ck-banner').style.display='none'; })();
-function hkbCk(v){ localStorage.setItem('hkb_ck',v); document.getElementById('ck-banner').style.display='none'; }
-</script>
+<script src="static/consent-loader.js"></script>
 </body>
 </html>
