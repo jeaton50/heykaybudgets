@@ -5,15 +5,17 @@
         <meta name="robots" content="index, follow">
 <meta name="google-adsense-account" content="ca-pub-9306267160220923">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Finance Blog — Hey Kay Budgets</title>
-    <meta name="description" content="Budgeting tips, saving strategies, and personal finance guides from Hey Kay Budgets. Real advice that helps you take control of your money.">
+    <title>Budgeting Guides for Real Life | Hey Kay Budgets</title>
+    <meta name="description" content="Browse beginner-friendly guides for budgeting, saving, sinking funds, and debt payoff from Hey Kay Budgets.">
     <link rel="canonical" href="https://www.heykaybudgets.com/blog" />
-    <meta property="og:title" content="Blog — Hey Kay Budgets" />
-    <meta property="og:description" content="Budgeting tips, saving strategies, and personal finance guides from Hey Kay Budgets." />
+    <meta property="og:title" content="Budgeting Guides for Real Life | Hey Kay Budgets" />
+    <meta property="og:description" content="Clear, beginner-friendly help for budgeting, saving, sinking funds, and debt payoff." />
     <meta property="og:url" content="https://www.heykaybudgets.com/blog" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Hey Kay Budgets" />
-    <meta property="og:image" content="https://www.heykaybudgets.com/static/logo.png" />
+    <meta property="og:image" content="https://www.heykaybudgets.com/static/social-card.png" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.heykaybudgets.com/static/social-card.png">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -31,8 +33,7 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
-    <link rel="preload" href="/static/logo-280.webp" as="image" type="image/webp" fetchpriority="high" media="(max-width: 640px)">
-    <link rel="preload" href="/static/logo-500.webp" as="image" type="image/webp" fetchpriority="high" media="(min-width: 641px)">
+
 <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -200,6 +201,7 @@
         .ck-no { background: transparent; color: rgba(240,244,255,0.45); border: 1px solid rgba(255,255,255,0.15); padding: 8px 18px; border-radius: 20px; font-size: 0.82rem; cursor: pointer; font-family: inherit; transition: color 0.2s; }
         .ck-yes:hover { filter: brightness(1.1); } .ck-no:hover { color: rgba(240,244,255,0.75); }
     </style>
+    <link rel="stylesheet" href="static/site-redesign.css">
 </head>
 <body>
 <div class="bg-scene">
@@ -209,179 +211,219 @@
 
     <div class="site-wrap">
         <header class="site-header">
-            <a href="/" class="logo-link">
-                <picture>
-                    <source srcset="static/logo-160.webp 160w, static/logo-280.webp 280w, static/logo-500.webp 500w" sizes="(max-width: 640px) 142px, 500px" type="image/webp">
-                    <img class="logo-img" src="static/logo-500.webp" srcset="static/logo-160.webp 160w, static/logo-280.webp 280w, static/logo-500.webp 500w" sizes="(max-width: 640px) 142px, 500px" alt="Hey Kay Budgets" width="500" height="283" fetchpriority="high" decoding="async">
-                </picture>
-            </a>
+            <div class="header-inner">
+                <a href="/" class="brand-link" aria-label="Hey Kay Budgets home">
+                    <span class="brand-avatar" aria-hidden="true"></span>
+                    <span class="brand-copy">
+                        <span class="brand-name">Hey Kay Budgets</span>
+                        <span class="brand-tagline">Budget. Save. Pay off debt.</span>
+                    </span>
+                </a>
+                <nav class="site-nav" aria-label="Primary navigation">
+                    <a href="/">Home</a>
+                    <a href="beginner-budgeting">Start Here</a>
+                    <a href="blog">Guides</a>
+                    <details class="nav-tools">
+                        <summary>Tools</summary>
+                        <div class="nav-tools-menu">
+                            <a href="/">Debt Payoff Tool</a>
+                            <a href="mortgage">Mortgage Calculator</a>
+                        </div>
+                    </details>
+                    <a href="about">About</a>
+                </nav>
+            </div>
         </header>
 
-        <nav class="site-nav">
-            <a href="/">Debt Calculator</a>
-            <a href="mortgage">Mortgage</a>
-            <a href="blog" class="nav-active">Blog</a>
-            <a href="about">About</a>
-            <a href="contact">Contact</a>
-        </nav>
+        <main class="page blog-page">
+            <div class="blog-hero">
+                <p class="eyebrow">Hey Kay Budgets guide library</p>
+                <h1>Budgeting Guides for Real Life</h1>
+                <p>Find clear, beginner-friendly help for budgeting, saving, sinking funds, and debt payoff. Filter by the money problem you are working on now.</p>
+            </div>
 
-        <div class="page">
-            <h1>Blog</h1>
-            <p class="subtitle">Practical budgeting tips and personal finance guides from Kay</p>
-            <h2>Budgeting Tips, Saving Strategies, and Debt Payoff Guides</h2>
+            <div class="filter-bar" role="group" aria-label="Filter guides by topic">
+                <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All guides</button>
+                <button class="filter-button" type="button" data-filter="budgeting" aria-pressed="false">Budgeting</button>
+                <button class="filter-button" type="button" data-filter="saving" aria-pressed="false">Saving</button>
+                <button class="filter-button" type="button" data-filter="sinking" aria-pressed="false">Sinking funds</button>
+                <button class="filter-button" type="button" data-filter="debt" aria-pressed="false">Debt payoff</button>
+            </div>
+            <p id="filter-status" class="sr-only" aria-live="polite">All guides shown</p>
 
             <div class="post-grid">
                 
-                <a href="beginner-budgeting" class="post-card">
+                <a href="beginner-budgeting" class="post-card" data-category="budgeting">
                     <div class="post-tag">Budgeting Basics</div>
+                    <div class="post-meta-row"><span>Updated Jun 16, 2026</span><span>4 min read</span></div>
                     <div class="post-title">Beginner Budgeting Guide: How to Start When You Feel Behind</div>
                     <div class="post-excerpt">A practical first budget for anyone who feels behind on bills, with simple steps for due dates, categories, paycheck planning, and one small money win.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="paycheck-budget" class="post-card">
+                <a href="paycheck-budget" class="post-card" data-category="budgeting">
                     <div class="post-tag">Paycheck Budgeting</div>
+                    <div class="post-meta-row"><span>Updated Jun 16, 2026</span><span>4 min read</span></div>
                     <div class="post-title">How to Create a Paycheck Budget</div>
                     <div class="post-excerpt">Learn how to split each paycheck between bills, spending money, sinking funds, savings, and the next pay period so fewer due dates sneak up on you.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="monthly-budget-checklist" class="post-card">
+                <a href="monthly-budget-checklist" class="post-card" data-category="budgeting">
                     <div class="post-tag">Budget Planning</div>
+                    <div class="post-meta-row"><span>Updated Jun 16, 2026</span><span>3 min read</span></div>
                     <div class="post-title">Monthly Budget Checklist for Beginners</div>
                     <div class="post-excerpt">Use this simple checklist before, during, and after the month to plan bills, spending, savings, debt payments, and quick budget reviews.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="zero-based-budget-template" class="post-card">
+                <a href="zero-based-budget-template" class="post-card" data-category="budgeting">
                     <div class="post-tag">Zero-Based Budgeting</div>
+                    <div class="post-meta-row"><span>Updated Jun 15, 2026</span><span>12 min read</span></div>
                     <div class="post-title">Zero Based Budget Template: How to Build and Fill One Out</div>
                     <div class="post-excerpt">A complete zero based budget template with sample numbers, step-by-step fill instructions, and the exact format to make every dollar count before the month begins.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="zero-based-budget-categories" class="post-card">
+                <a href="zero-based-budget-categories" class="post-card" data-category="budgeting">
                     <div class="post-tag">Zero-Based Budgeting</div>
+                    <div class="post-meta-row"><span>Updated Jun 4, 2026</span><span>18 min read</span></div>
                     <div class="post-title">Zero Based Budget Categories: The Complete List to Get Started</div>
                     <div class="post-excerpt">Every dollar gets a job in a zero-based budget — but first you need the right categories. Here&#39;s the complete list organized by type, with realistic benchmarks for each.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="zero-based-budget-examples" class="post-card">
+                <a href="zero-based-budget-examples" class="post-card" data-category="budgeting">
                     <div class="post-tag">Zero-Based Budgeting</div>
+                    <div class="post-meta-row"><span>Updated Jun 11, 2026</span><span>11 min read</span></div>
                     <div class="post-title">Zero Based Budget Examples: 5 Real Budgets That Hit Zero</div>
                     <div class="post-excerpt">See 5 complete zero based budget examples for incomes from $2,500 to $7,200 a month, with full category breakdowns that actually balance to zero.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
                 
-                <a href="zero-based-budget" class="post-card">
+                <a href="zero-based-budget" class="post-card" data-category="budgeting">
                     <div class="post-tag">Budgeting Basics</div>
+                    <div class="post-meta-row"><span>Updated Jun 3, 2026</span><span>10 min read</span></div>
                     <div class="post-title">What Is Zero Based Budgeting? (And How to Build One)</div>
                     <div class="post-excerpt">Zero based budgeting gives every dollar a job before the month begins. Here's how it works, what categories to use, and how to start your first ZBB in 30 minutes.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="buffer" class="post-card">
+                <a href="buffer" class="post-card" data-category="saving">
                     <div class="post-tag">Personal Finance</div>
+                    <div class="post-meta-row"><span>Updated Jun 25, 2026</span><span>6 min read</span></div>
                     <div class="post-title">Budget Buffer: What It Is and How Much You Should Save</div>
                     <div class="post-excerpt">Learn how a checking-account cushion prevents overdrafts, how much beginners should save, and how to build one when money is tight.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="sinking-funds" class="post-card">
+                <a href="sinking-funds" class="post-card" data-category="sinking">
                     <div class="post-tag">Budgeting Basics</div>
+                    <div class="post-meta-row"><span>Updated Jun 19, 2026</span><span>10 min read</span></div>
                     <div class="post-title">Sinking Fund Categories: 50+ Examples for Beginners</div>
                     <div class="post-excerpt">Irregular expenses don't have to derail your budget. Learn how sinking funds turn every surprise bill into a planned purchase you're already ready for.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="saving-strategy" class="post-card">
+                <a href="saving-strategy" class="post-card" data-category="saving">
                     <div class="post-tag">Saving Strategy</div>
+                    <div class="post-meta-row"><span>Updated Jun 19, 2026</span><span>8 min read</span></div>
                     <div class="post-title">How to Get One Month Ahead on Bills: A Beginner Saving Strategy</div>
                     <div class="post-excerpt">A beginner-friendly plan to build a buffer, save one bill at a time, protect next month's money, and stop racing every due date.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="safety-net" class="post-card">
+                <a href="safety-net" class="post-card" data-category="saving">
                     <div class="post-tag">Emergency Savings</div>
+                    <div class="post-meta-row"><span>Updated Apr 27, 2026</span><span>6 min read</span></div>
                     <div class="post-title">Building a Tiny Safety Net: Your First $500 Emergency Fund</div>
                     <div class="post-excerpt">You don't need $1,000 or three months of expenses to start. Here's how to build your first safety net in four practical milestones — starting this week.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="mistakes" class="post-card">
+                <a href="mistakes" class="post-card" data-category="budgeting">
                     <div class="post-tag">Budgeting Tips</div>
+                    <div class="post-meta-row"><span>Updated Apr 27, 2026</span><span>8 min read</span></div>
                     <div class="post-title">5 Budgeting Mistakes That Keep You Broke</div>
                     <div class="post-excerpt">Most people who struggle with money aren't lazy — they're using the wrong system. Here are the five mistakes that quietly sabotage even the best intentions.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="sinking-fund-categories" class="post-card">
+                <a href="sinking-fund-categories" class="post-card" data-category="sinking">
                     <div class="post-tag">Sinking Funds</div>
+                    <div class="post-meta-row"><span>Updated Jun 3, 2026</span><span>8 min read</span></div>
                     <div class="post-title">50+ Sinking Fund Categories: The Ultimate List for Every Budget</div>
                     <div class="post-excerpt">From home repairs to holiday gifts, here are 50+ sinking fund categories organized by type so you can build a savings system that covers every irregular expense.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="sinking-fund-examples" class="post-card">
+                <a href="sinking-fund-examples" class="post-card" data-category="sinking">
                     <div class="post-tag">Sinking Funds</div>
+                    <div class="post-meta-row"><span>Updated Jun 3, 2026</span><span>7 min read</span></div>
                     <div class="post-title">Sinking Fund Examples: Real-Life Scenarios That Actually Work</div>
                     <div class="post-excerpt">See 12+ real sinking fund examples with actual dollar amounts and monthly math — car repairs, vacations, holidays, and more. Copy the ones that fit your life.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="sinking-fund-examples-families" class="post-card">
+                <a href="sinking-fund-examples-families" class="post-card" data-category="sinking">
                     <div class="post-tag">Sinking Funds</div>
+                    <div class="post-meta-row"><span>Updated Jun 3, 2026</span><span>6 min read</span></div>
                     <div class="post-title">Sinking Fund Examples for Families: How to Budget for Every Expense</div>
                     <div class="post-excerpt">Kids' activities, back-to-school, vacations, medical bills — real sinking fund examples for families with actual dollar amounts and sample household budget breakdowns.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="emergency-fund-vs-sinking-fund" class="post-card">
+                <a href="emergency-fund-vs-sinking-fund" class="post-card" data-category="sinking">
                     <div class="post-tag">Budgeting Basics</div>
+                    <div class="post-meta-row"><span>Updated Jun 3, 2026</span><span>6 min read</span></div>
                     <div class="post-title">Emergency Fund vs Sinking Fund: What&#39;s the Difference and Which Comes First?</div>
                     <div class="post-excerpt">These two savings tools are often confused — but they serve completely different jobs. Here&#39;s a clear breakdown of when to use each and in what order to build them.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="how-much-sinking-fund" class="post-card">
+                <a href="how-much-sinking-fund" class="post-card" data-category="sinking">
                     <div class="post-tag">Sinking Funds</div>
+                    <div class="post-meta-row"><span>Updated Jun 3, 2026</span><span>6 min read</span></div>
                     <div class="post-title">How Much Should You Put in a Sinking Fund? A Simple Formula</div>
                     <div class="post-excerpt">One formula answers every sinking fund contribution question. Here&#39;s the math, worked examples for six categories, and rule-of-thumb percentages for the hard ones.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="sinking-fund-budget-categories" class="post-card">
+                <a href="sinking-fund-budget-categories" class="post-card" data-category="sinking">
                     <div class="post-tag">Sinking Funds</div>
+                    <div class="post-meta-row"><span>Updated Jun 3, 2026</span><span>7 min read</span></div>
                     <div class="post-title">The Best Budget Categories for Sinking Funds (and How to Start Each One)</div>
                     <div class="post-excerpt">The 15 budget categories most worth turning into sinking funds, why each one matters, and how to set them up inside a zero-based budget. Practical from day one.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                <a href="debt-snowball-method" class="post-card">
+                <a href="debt-snowball-method" class="post-card" data-category="debt">
                     <div class="post-tag">Debt Payoff</div>
+                    <div class="post-meta-row"><span>Updated Jun 18, 2026</span><span>14 min read</span></div>
                     <div class="post-title">Debt Snowball Method: How It Works and Why It Keeps You Going</div>
                     <div class="post-excerpt">The debt snowball method pays off your smallest debts first to build momentum. Here&#39;s how it works, a real example, and a step-by-step plan to get started and stay motivated.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                                <a href="debt-payoff-plan" class="post-card">
+                                <a href="debt-payoff-plan" class="post-card" data-category="debt">
                     <div class="post-tag">Debt Payoff</div>
+                    <div class="post-meta-row"><span>Updated Jun 23, 2026</span><span>10 min read</span></div>
                     <div class="post-title">How to Create a Debt Payoff Plan That Actually Works</div>
                     <div class="post-excerpt">Learn how to create a debt payoff plan step by step. List your debts, pick a strategy, find extra money, and set a payoff date you can actually hit.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
-                                <a href="debt-avalanche-method" class="post-card">
+                                <a href="debt-avalanche-method" class="post-card" data-category="debt">
                     <div class="post-tag">Debt Payoff</div>
+                    <div class="post-meta-row"><span>Updated Jun 16, 2026</span><span>11 min read</span></div>
                     <div class="post-title">Debt Avalanche Method: How It Works and Why It Saves You the Most</div>
                     <div class="post-excerpt">The debt avalanche method targets your highest-interest debt first, saving you the most money over time. Here&#39;s how it works, a real example, and a step-by-step plan to get started.</div>
                     <div class="post-read-more">Read article &rarr;</div>
                 </a>
 
             </div>
-        </div>
+        </main>
 
         <footer class="site-footer">
             <div class="footer-links">
@@ -391,7 +433,7 @@
                 <a href="terms">Terms of Service</a>
                 <a href="disclaimer">Disclaimer</a>
             </div>
-            <div class="footer-copy">&copy; 2025 Hey Kay Budgets. All rights reserved.</div>
+            <div class="footer-copy">&copy; 2026 Hey Kay Budgets. All rights reserved.</div>
         </footer>
     </div>
 <div id="ck-banner">
@@ -402,5 +444,6 @@
     </div>
 </div>
 <script src="static/consent-loader.js"></script>
+    <script src="static/site-redesign.js" defer></script>
 </body>
 </html>
