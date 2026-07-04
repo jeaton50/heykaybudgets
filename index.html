@@ -698,6 +698,60 @@
                 </div>
             </section>
 
+            <section class="tool-section" id="debt-payoff-tool" aria-labelledby="tool-title">
+                <div class="section-heading">
+                    <p class="eyebrow">Free interactive tool</p>
+                    <h2 id="tool-title">Debt Payoff Calculator</h2>
+                    <p>Use this free debt payoff calculator to estimate how long it will take to pay off your debt, compare payoff strategies, and see how extra payments can help you become debt-free faster.</p>
+                </div>
+            <div class="currency-row">
+                <label for="currency">Currency:</label>
+                <select id="currency">
+                    <option value="usd">U.S. Dollar (USD $)</option>
+                    <option value="eur">Euro (EUR €)</option>
+                    <option value="gbp">British Pound (GBP £)</option>
+                    <option value="jpy">Japanese Yen (JPY ¥)</option>
+                    <option value="cad">Canadian Dollar (CAD $)</option>
+                    <option value="aud">Australian Dollar (AUD $)</option>
+                    <option value="mxn">Mexican Peso (MXN $)</option>
+                </select>
+            </div>
+
+            <div class="glass-card">
+                <div class="sec-header">
+                    <span class="sec-title">Debt Information</span>
+                    <button class="btn-export" onclick="exportData()">&#11015; Export to Excel</button>
+                </div>
+                <div class="tbl-scroll">
+                    <table class="debt-tbl">
+                        <thead>
+                            <tr>
+                                <th>Debt Name</th>
+                                <th>Balance ($)</th>
+                                <th>Interest Rate (%)</th>
+                                <th>Minimum Payment ($)</th>
+                                <th>Extra Monthly Payment ($)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="debt-rows"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="act-btns">
+                <button class="btn-add" onclick="addRow()">+ Add Another Debt</button>
+                <button class="btn-calc" onclick="calculate()">&#9889; Calculate</button>
+                <button class="btn-reset" onclick="resetAll()">&#8635; Reset</button>
+            </div>
+
+            <div id="results"></div>
+
+            <div class="nav-wrap mortgage-tool-link">
+                <a href="mortgage" class="nav-btn">&#127968; Mortgage Calculator</a>
+            </div>
+            </section>
+
             <section class="start-section" aria-labelledby="start-title">
                 <div class="section-heading">
                     <p class="eyebrow">Choose your next step</p>
@@ -736,60 +790,6 @@
                         <small>Start small and protect yourself from the next surprise.</small>
                     </a>
                 </div>
-            </section>
-
-            <section class="tool-section" id="debt-payoff-tool" aria-labelledby="tool-title">
-                <div class="section-heading">
-                    <p class="eyebrow">Free interactive tool</p>
-                    <h2 id="tool-title">Debt Payoff Calculator</h2>
-                    <p>Use this free debt payoff calculator to estimate how long it will take to pay off your debt, compare payoff strategies, and see how extra payments can help you become debt-free faster.</p>
-                </div>
-            <div class="currency-row">
-                <label for="currency">Currency:</label>
-                <select id="currency">
-                    <option value="usd">U.S. Dollar (USD $)</option>
-                    <option value="eur">Euro (EUR €)</option>
-                    <option value="gbp">British Pound (GBP £)</option>
-                    <option value="jpy">Japanese Yen (JPY ¥)</option>
-                    <option value="cad">Canadian Dollar (CAD $)</option>
-                    <option value="aud">Australian Dollar (AUD $)</option>
-                    <option value="mxn">Mexican Peso (MXN $)</option>
-                </select>
-            </div>
-
-            <div class="nav-wrap">
-                <a href="mortgage" class="nav-btn">&#127968; Mortgage Calculator</a>
-            </div>
-
-            <div class="glass-card">
-                <div class="sec-header">
-                    <span class="sec-title">Debt Information</span>
-                    <button class="btn-export" onclick="exportData()">&#11015; Export to Excel</button>
-                </div>
-                <div class="tbl-scroll">
-                    <table class="debt-tbl">
-                        <thead>
-                            <tr>
-                                <th>Debt Name</th>
-                                <th>Balance ($)</th>
-                                <th>Interest Rate (%)</th>
-                                <th>Minimum Payment ($)</th>
-                                <th>Extra Monthly Payment ($)</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="debt-rows"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="act-btns">
-                <button class="btn-add" onclick="addRow()">+ Add Another Debt</button>
-                <button class="btn-calc" onclick="calculate()">&#9889; Calculate</button>
-                <button class="btn-reset" onclick="resetAll()">&#8635; Reset</button>
-            </div>
-
-            <div id="results"></div>
             </section>
         </main>
 
