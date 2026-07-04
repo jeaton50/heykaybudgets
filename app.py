@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, send_from_directory
+from flask import Flask, redirect, request, render_template, send_from_directory
 from decimal import Decimal, getcontext, ROUND_HALF_UP
 import math
 import sys
@@ -37,7 +37,18 @@ access_logger.addHandler(access_handler)
 
 # Define Central Time Zone (handles CST and CDT automatically)
 CENTRAL_TIMEZONE = ZoneInfo("America/Chicago")
+LEGACY_HOST = "heykaybudgets.pythonanywhere.com"
+CANONICAL_ORIGIN = "https://www.heykaybudgets.com"
 
+@app.before_request
+def redirect_legacy_domain():
+    if request.host.split(":", 1)[0].lower() != LEGACY_HOST:
+        return None
+
+    destination = f"{CANONICAL_ORIGIN}{request.path}"
+    if request.query_string:
+        destination = f"{destination}?{request.query_string.decode('utf-8', errors='ignore')}"
+    return redirect(destination, code=301)
 
 # Helper function to get IP info
 def get_ip_info(ip_address):

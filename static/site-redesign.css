@@ -296,6 +296,40 @@ h1 {
     text-underline-offset: 3px;
 }
 
+.comparison-table-wrap {
+    margin: 20px 0;
+    overflow-x: auto;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+}
+
+.comparison-table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 13px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    text-align: left;
+    vertical-align: top;
+}
+
+.comparison-table th {
+    color: var(--text);
+    background: rgba(243, 200, 75, 0.09);
+    font-weight: 800;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: 0;
+}
+
 .tip-box {
     border: 0 !important;
     border-left: 3px solid var(--gold) !important;
@@ -494,6 +528,46 @@ h1 {
     margin: 0 0 22px;
     color: var(--text-muted) !important;
     line-height: 1.72;
+}
+
+.calculator-next-steps .eyebrow {
+    margin-bottom: 8px;
+}
+
+.calculator-next-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.calculator-next-link {
+    display: grid;
+    gap: 8px;
+    min-height: 126px;
+    padding: 20px;
+    color: var(--text);
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.calculator-next-link:hover,
+.calculator-next-link:focus-visible {
+    background: rgba(243, 200, 75, 0.07);
+    border-color: rgba(243, 200, 75, 0.48);
+    transform: translateY(-2px);
+}
+
+.calculator-next-link strong {
+    color: var(--gold-strong);
+}
+
+.calculator-next-link span {
+    color: var(--text-muted);
+    line-height: 1.55;
 }
 
 .resource-links {
@@ -883,6 +957,14 @@ h1 {
 }
 
 @media (max-width: 720px) {
+    .calculator-next-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator-next-link {
+        min-height: 0;
+    }
+
     .header-inner {
         width: min(100% - 20px, 680px);
     }

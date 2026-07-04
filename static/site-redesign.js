@@ -300,12 +300,61 @@
         }
     }
 
+    window.hkbTrackEvent = function (name, parameters) {
+        if (typeof window.gtag !== "function") return;
+        window.gtag("event", name, parameters || {});
+    };
+
+    function getElementLocation(element) {
+        var section = element.closest("section, header, footer, nav");
+        if (!section) return "page";
+        return section.id ||
+            section.getAttribute("aria-label") ||
+            section.className.split(" ")[0] ||
+            section.tagName.toLowerCase();
+    }
+
+    function setupAnalyticsTracking() {
+        document.addEventListener("click", function (event) {
+            var link = event.target.closest("a[href]");
+            if (!link) return;
+
+            var destination;
+            try {
+                destination = new URL(link.href, window.location.href);
+            } catch (error) {
+                return;
+            }
+
+            var samePageAnchor =
+                destination.hash &&
+                destination.pathname === window.location.pathname;
+            if (destination.origin !== window.location.origin || samePageAnchor) return;
+
+            window.hkbTrackEvent("internal_link_click", {
+                link_text: link.textContent.trim().replace(/\s+/g, " ").slice(0, 100),
+                link_url: destination.pathname,
+                link_location: getElementLocation(link),
+                source_page: window.location.pathname
+            });
+        });
+
+        document.querySelectorAll("form.signup-form, .article-signup form").forEach(function (form) {
+            form.addEventListener("submit", function () {
+                window.hkbTrackEvent("email_signup_submit", {
+                    form_location: getElementLocation(form)
+                });
+            });
+        });
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
         var slug = getSlug();
         setCurrentNavigation(slug);
         setupToolsMenu();
         setupBlogFilters();
         enhanceArticle(slug);
+        setupAnalyticsTracking();
         updateFooterYear();
     });
 })();

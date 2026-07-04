@@ -45,20 +45,25 @@ for (const file of files) {
 
     html = html.replace(
         /<meta property="og:image" content="[^"]+" \/>/,
-        '<meta property="og:image" content="https://www.heykaybudgets.com/static/social-card.png" />'
+        '<meta property="og:image" content="https://www.heykaybudgets.com/static/kay-avatar.png" />'
     );
 
     if (!html.includes('property="og:image"')) {
         html = html.replace(
             /(<meta property="og:site_name" content="[^"]+" \/>)/,
-            '$1\n    <meta property="og:image" content="https://www.heykaybudgets.com/static/social-card.png" />'
+            '$1\n    <meta property="og:image" content="https://www.heykaybudgets.com/static/kay-avatar.png" />'
         );
     }
+
+    html = html.replace(
+        /<meta name="twitter:image" content="[^"]+">/,
+        '<meta name="twitter:image" content="https://www.heykaybudgets.com/static/kay-avatar.png">'
+    );
 
     if (!html.includes('name="twitter:card"')) {
         html = html.replace(
             /(<meta property="og:image" content="[^"]+" \/>)/,
-            '$1\n    <meta name="twitter:card" content="summary_large_image">\n    <meta name="twitter:image" content="https://www.heykaybudgets.com/static/social-card.png">'
+            '$1\n    <meta name="twitter:card" content="summary_large_image">\n    <meta name="twitter:image" content="https://www.heykaybudgets.com/static/kay-avatar.png">'
         );
     }
 
