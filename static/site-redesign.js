@@ -15,7 +15,7 @@
         "mistakes": ["5 Budgeting Mistakes That Keep You Broke", "Budgeting Tips"],
         "sinking-funds": ["Sinking Fund Categories: 50+ Examples for Beginners", "Sinking Funds"],
         "sinking-fund-categories": ["50+ Sinking Fund Categories", "Sinking Funds"],
-        "sinking-fund-examples": ["Real-Life Sinking Fund Examples", "Sinking Funds"],
+        "sinking-fund-examples": ["Sinking Fund Examples: 75 Ideas for Beginners", "Sinking Funds"],
         "sinking-fund-examples-families": ["Sinking Fund Examples for Families", "Sinking Funds"],
         "emergency-fund-vs-sinking-fund": ["Emergency Fund vs Sinking Fund", "Sinking Funds"],
         "how-much-sinking-fund": ["How Much Should You Put in a Sinking Fund?", "Sinking Funds"],
