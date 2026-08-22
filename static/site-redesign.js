@@ -20,9 +20,29 @@
         "emergency-fund-vs-sinking-fund": ["Emergency Fund vs Sinking Fund", "Sinking Funds"],
         "how-much-sinking-fund": ["How Much Should You Put in a Sinking Fund?", "Sinking Funds"],
         "sinking-fund-budget-categories": ["Best Budget Categories for Sinking Funds", "Sinking Funds"],
+        "high-priority-sinking-funds": ["High Priority Sinking Funds List: What to Save for First", "Sinking Funds"],
+        "sinking-fund-tracker": ["Sinking Fund Tracker: How to Track Your Categories Each Month", "Sinking Funds"],
+        "budget-buffer-vs-emergency-fund-vs-sinking-fund": ["Budget Buffer vs Emergency Fund vs Sinking Fund", "Saving"],
         "debt-payoff-plan": ["How to Create a Debt Payoff Plan That Works", "Debt Payoff"],
         "debt-snowball-method": ["Debt Snowball Method", "Debt Payoff"],
-        "debt-avalanche-method": ["Debt Avalanche Method", "Debt Payoff"]
+        "debt-avalanche-method": ["Debt Avalanche Method", "Debt Payoff"],
+        "debt-snowball-vs-avalanche": ["Debt Snowball vs Avalanche", "Debt Payoff"],
+        "pay-off-debt-low-income": ["How to Pay Off Debt on a Low Income", "Debt Payoff"],
+        "credit-card-debt": ["How to Pay Off Credit Card Debt", "Debt Payoff"],
+        "how-to-start-budgeting-when-behind": ["How to Start Budgeting When You're Behind on Bills", "Budgeting Basics"],
+        "living-paycheck-to-paycheck": ["How to Stop Living Paycheck to Paycheck", "Budgeting Basics"],
+        "budget-categories": ["Budget Categories for Beginners", "Budgeting Basics"],
+        "budget-for-one": ["Budgeting for One Person", "Budgeting Basics"],
+        "irregular-income-budget": ["How to Budget With Irregular Income", "Budgeting Basics"],
+        "50-30-20-budget-rule": ["The 50/30/20 Budget Rule", "Budgeting Basics"],
+        "cash-stuffing": ["Cash Stuffing: How It Works", "Budgeting Methods"],
+        "cash-stuffing-categories": ["Cash Stuffing Categories", "Budgeting Methods"],
+        "52-week-savings-challenge": ["52 Week Savings Challenge", "Saving"],
+        "no-spend-challenge": ["How to Run a No Spend Challenge", "Saving"],
+        "pay-yourself-first": ["Pay Yourself First", "Saving"],
+        "save-1000-emergency-fund": ["How to Save Your First $1,000", "Saving"],
+        "save-10000-in-a-year": ["How to Save $10,000 in a Year", "Saving"],
+        "save-money-fast": ["How to Save Money Fast", "Saving"]
     };
 
     var articleGroups = [
@@ -49,20 +69,133 @@
             "sinking-fund-examples-families",
             "how-much-sinking-fund",
             "sinking-fund-budget-categories",
+            "high-priority-sinking-funds",
+            "sinking-fund-tracker",
+            "budget-buffer-vs-emergency-fund-vs-sinking-fund",
             "emergency-fund-vs-sinking-fund"
         ],
         [
             "debt-payoff-plan",
             "debt-snowball-method",
             "debt-avalanche-method",
+            "debt-snowball-vs-avalanche",
+            "pay-off-debt-low-income",
+            "credit-card-debt",
             "beginner-budgeting"
         ]
     ];
+
+    var startHereGuides = {
+        "sinking-funds": [
+            ["Choose your top three funds", "high-priority-sinking-funds"],
+            ["Browse 75 sinking fund examples", "sinking-fund-examples"],
+            ["Add the monthly amount to your budget", "zero-based-budget-categories"],
+            ["Track each balance every month", "sinking-fund-tracker"]
+        ],
+        "sinking-fund-examples": [
+            ["Start with essential categories", "high-priority-sinking-funds"],
+            ["Choose a monthly contribution", "how-much-sinking-fund"],
+            ["Add each fund to your budget", "zero-based-budget-categories"],
+            ["Track your progress", "sinking-fund-tracker"]
+        ],
+        "zero-based-budget-categories": [
+            ["Start with income and required bills", "beginner-budgeting"],
+            ["Add high-priority sinking funds", "high-priority-sinking-funds"],
+            ["Plan each paycheck", "paycheck-budget"],
+            ["Review the month", "monthly-budget-checklist"]
+        ],
+        "saving-strategy": [
+            ["Build a small checking cushion", "buffer"],
+            ["Protect predictable expenses", "sinking-funds"],
+            ["Save one bill at a time", "paycheck-budget"],
+            ["Compare your three safety tools", "budget-buffer-vs-emergency-fund-vs-sinking-fund"]
+        ],
+        "buffer": [
+            ["Choose a starter buffer target", "budget-buffer-vs-emergency-fund-vs-sinking-fund"],
+            ["Add it to your beginner budget", "beginner-budgeting"],
+            ["Build one bill ahead", "saving-strategy"],
+            ["Keep true emergencies separate", "emergency-fund-vs-sinking-fund"]
+        ],
+        "high-priority-sinking-funds": [
+            ["Pick only three starter categories", "sinking-funds"],
+            ["Calculate each monthly amount", "how-much-sinking-fund"],
+            ["Track the balances", "sinking-fund-tracker"],
+            ["Add more ideas later", "sinking-fund-examples"]
+        ],
+        "emergency-fund-vs-sinking-fund": [
+            ["Compare all three savings tools", "budget-buffer-vs-emergency-fund-vs-sinking-fund"],
+            ["Build a small emergency cushion", "safety-net"],
+            ["Choose essential sinking funds", "high-priority-sinking-funds"],
+            ["Create a budget buffer", "buffer"]
+        ]
+    };
 
     function getSlug() {
         var path = window.location.pathname.replace(/\/+$/, "");
         var last = path.split("/").pop() || "index";
         return last.replace(/\.html$/, "") || "index";
+    }
+
+    function registerCurrentArticle(slug) {
+        if (articles[slug]) return;
+        var page = document.querySelector("article.page");
+        var articleSchema = Array.from(document.querySelectorAll('script[type="application/ld+json"]')).some(function (script) {
+            return script.textContent.indexOf('"Article"') !== -1;
+        });
+        if (!page || !articleSchema) return;
+        var heading = page.querySelector("h1");
+        var meta = page.querySelector(".post-meta");
+        var category = "Budgeting Guide";
+        if (meta) {
+            var parts = meta.textContent.split("|").map(function (part) { return part.trim(); });
+            if (parts.length > 1 && parts[1]) category = parts[1];
+        }
+        articles[slug] = [heading ? heading.textContent.trim() : document.title, category];
+    }
+
+    function addBreadcrumbs(page, slug) {
+        if (page.querySelector(".breadcrumbs")) return;
+        var title = articles[slug][0];
+        var nav = document.createElement("nav");
+        nav.className = "breadcrumbs";
+        nav.setAttribute("aria-label", "Breadcrumb");
+        nav.innerHTML = '<a href="/">Home</a><span aria-hidden="true">/</span><a href="blog">Guides</a><span aria-hidden="true">/</span><span aria-current="page">' + title + "</span>";
+        page.insertBefore(nav, page.firstElementChild);
+
+        if (!document.querySelector('script[data-hkb-breadcrumb-schema]')) {
+            var schema = document.createElement("script");
+            schema.type = "application/ld+json";
+            schema.setAttribute("data-hkb-breadcrumb-schema", "true");
+            schema.textContent = JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.heykaybudgets.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://www.heykaybudgets.com/blog" },
+                    { "@type": "ListItem", "position": 3, "name": title, "item": "https://www.heykaybudgets.com/" + slug }
+                ]
+            });
+            document.head.appendChild(schema);
+        }
+    }
+
+    function createStartHere(slug) {
+        var steps = startHereGuides[slug];
+        if (!steps) return null;
+        var section = document.createElement("section");
+        section.className = "glass-card start-here-box";
+        section.innerHTML = '<p class="start-here-kicker">New to this topic?</p><h2>Start Here</h2><ol>' + steps.map(function (step) {
+            return '<li><a href="' + step[1] + '">' + step[0] + "</a></li>";
+        }).join("") + "</ol>";
+        return section;
+    }
+
+    function createAuthorBox() {
+        var section = document.createElement("aside");
+        section.className = "author-box";
+        section.setAttribute("aria-labelledby", "about-kay-title");
+        section.innerHTML = '<span class="author-avatar" aria-hidden="true"></span><div><p class="author-kicker">About the author</p><h2 id="about-kay-title">About Kay</h2><p>Kay writes Hey Kay Budgets from personal experience after learning how to budget, save, and pay down debt without shame or complicated finance jargon. She is not a licensed financial advisor and shares practical budgeting systems, calculators, and examples for beginners.</p><a href="about">Read Kay\'s story and editorial approach &rarr;</a></div>';
+        return section;
     }
 
     function setCurrentNavigation(slug) {
@@ -83,7 +216,7 @@
             if (guidesLink) guidesLink.setAttribute("aria-current", "page");
         }
 
-        var toolSlugs = ["mortgage"];
+        var toolSlugs = ["mortgage", "resources", "budget-printables"];
         var tools = document.querySelector(".nav-tools");
         if (tools && toolSlugs.indexOf(slug) !== -1) {
             tools.classList.add("is-current");
@@ -243,7 +376,14 @@
         var page = document.querySelector("article.page");
         if (!page || page.classList.contains("article-page-enhanced")) return;
 
+        addBreadcrumbs(page, slug);
+
         var cards = Array.from(page.querySelectorAll(":scope > .glass-card"));
+        var startHere = createStartHere(slug);
+        if (startHere && cards[0]) {
+            cards[0].insertAdjacentElement("afterend", startHere);
+            cards = Array.from(page.querySelectorAll(":scope > .glass-card"));
+        }
         var headings = Array.from(page.querySelectorAll(":scope > .glass-card h2"));
         if (!cards.length) return;
 
@@ -289,6 +429,7 @@
             midpoint.insertAdjacentElement("afterend", createSignup("mid"));
         }
 
+        content.appendChild(createAuthorBox());
         content.appendChild(createRelatedGuides(slug));
         content.appendChild(createSignup("end"));
     }
@@ -350,6 +491,7 @@
 
     document.addEventListener("DOMContentLoaded", function () {
         var slug = getSlug();
+        registerCurrentArticle(slug);
         setCurrentNavigation(slug);
         setupToolsMenu();
         setupBlogFilters();

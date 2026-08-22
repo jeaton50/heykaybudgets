@@ -7,6 +7,9 @@ https://heykaybudgets.com/*     https://www.heykaybudgets.com/:splat      301!
 /budget-buffer                         /buffer                            301!
 /budget-categories-for-beginners      /budget-categories                 301!
 /stop-living-paycheck-to-paycheck     /living-paycheck-to-paycheck       301!
+/sinking-fund-examples-for-families   /sinking-fund-examples-families    301!
+/how-much-should-you-put-in-a-sinking-fund /how-much-sinking-fund          301!
+/best-budget-categories-for-sinking-funds /sinking-fund-budget-categories  301!
 
 # Canonical clean URL redirects
 /index.html                              /                                  301!
@@ -35,3 +38,7 @@ https://heykaybudgets.com/*     https://www.heykaybudgets.com/:splat      301!
 /zero-based-budget-examples.html         /zero-based-budget-examples        301!
 /zero-based-budget-template.html         /zero-based-budget-template        301!
 /zero-based-budget.html                  /zero-based-budget                 301!
+/resources.html                          /resources                         301!
+/budget-printables.html                  /budget-printables                 301!
+/sinking-fund-tracker.html               /sinking-fund-tracker              301!
+/budget-buffer-vs-emergency-fund-vs-sinking-fund.html /budget-buffer-vs-emergency-fund-vs-sinking-fund 301!
