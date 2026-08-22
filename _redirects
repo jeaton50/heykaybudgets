@@ -3,6 +3,11 @@ http://heykaybudgets.com/*      https://www.heykaybudgets.com/:splat      301!
 http://www.heykaybudgets.com/*  https://www.heykaybudgets.com/:splat      301!
 https://heykaybudgets.com/*     https://www.heykaybudgets.com/:splat      301!
 
+# Helpful aliases from editorial/search naming to established canonical pages
+/budget-buffer                         /buffer                            301!
+/budget-categories-for-beginners      /budget-categories                 301!
+/stop-living-paycheck-to-paycheck     /living-paycheck-to-paycheck       301!
+
 # Canonical clean URL redirects
 /index.html                              /                                  301!
 /about.html                              /about                             301!
