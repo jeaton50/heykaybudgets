@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://quiet-bienenstitch-b28edc.netlify.app/*"
+  to   = "https://www.heykaybudgets.com/:splat"
+  status = 301
+  force  = true

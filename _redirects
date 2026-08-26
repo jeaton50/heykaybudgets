@@ -1,7 +1,8 @@
-# Canonical domain redirects
-http://heykaybudgets.com/*      https://www.heykaybudgets.com/:splat      301!
-http://www.heykaybudgets.com/*  https://www.heykaybudgets.com/:splat      301!
-https://heykaybudgets.com/*     https://www.heykaybudgets.com/:splat      301!
+# Canonical domain redirects — force all traffic to www.heykaybudgets.com
+http://heykaybudgets.com/*                        https://www.heykaybudgets.com/:splat  301!
+http://www.heykaybudgets.com/*                    https://www.heykaybudgets.com/:splat  301!
+https://heykaybudgets.com/*                       https://www.heykaybudgets.com/:splat  301!
+https://quiet-bienenstitch-b28edc.netlify.app/*   https://www.heykaybudgets.com/:splat  301!
 
 # Helpful aliases from editorial/search naming to established canonical pages
 /budget-buffer                         /buffer                            301!
@@ -42,3 +43,25 @@ https://heykaybudgets.com/*     https://www.heykaybudgets.com/:splat      301!
 /budget-printables.html                  /budget-printables                 301!
 /sinking-fund-tracker.html               /sinking-fund-tracker              301!
 /budget-buffer-vs-emergency-fund-vs-sinking-fund.html /budget-buffer-vs-emergency-fund-vs-sinking-fund 301!
+/50-30-20-budget-rule.html               /50-30-20-budget-rule              301!
+/52-week-savings-challenge.html          /52-week-savings-challenge         301!
+/budget-categories.html                  /budget-categories                 301!
+/budget-for-one.html                     /budget-for-one                    301!
+/cash-stuffing-categories.html           /cash-stuffing-categories          301!
+/cash-stuffing.html                      /cash-stuffing                     301!
+/couple-budget.html                      /couple-budget                     301!
+/credit-card-debt.html                   /credit-card-debt                  301!
+/debt-avalanche-method.html              /debt-avalanche-method             301!
+/debt-payoff-plan.html                   /debt-payoff-plan                  301!
+/debt-snowball-method.html               /debt-snowball-method              301!
+/debt-snowball-vs-avalanche.html         /debt-snowball-vs-avalanche        301!
+/high-priority-sinking-funds.html        /high-priority-sinking-funds       301!
+/how-to-start-budgeting-when-behind.html /how-to-start-budgeting-when-behind 301!
+/irregular-income-budget.html            /irregular-income-budget           301!
+/living-paycheck-to-paycheck.html        /living-paycheck-to-paycheck       301!
+/no-spend-challenge.html                 /no-spend-challenge                301!
+/pay-off-debt-low-income.html            /pay-off-debt-low-income           301!
+/pay-yourself-first.html                 /pay-yourself-first                301!
+/save-1000-emergency-fund.html           /save-1000-emergency-fund          301!
+/save-10000-in-a-year.html               /save-10000-in-a-year              301!
+/save-money-fast.html                    /save-money-fast                   301!
