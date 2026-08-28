@@ -9,7 +9,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo  # Added for timezone handling
 import os  # Added for environment variables
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.')
 
 # Set decimal precision higher to handle financial calculations accurately
 getcontext().prec = 28
@@ -418,7 +418,7 @@ def free_resources():
 
 @app.route('/resources')
 def resources():
-    return send_from_directory('.', 'resources.html')
+    return redirect('/free-resources', code=301)
 
 @app.route('/budget-printables')
 def budget_printables():
@@ -459,6 +459,10 @@ def cash_stuffing_categories():
 @app.route('/couple-budget')
 def couple_budget():
     return send_from_directory('.', 'couple-budget.html')
+
+@app.route('/college-student-budget')
+def college_student_budget():
+    return send_from_directory('.', 'college-student-budget.html')
 
 @app.route('/debt-snowball-vs-avalanche')
 def debt_snowball_vs_avalanche():

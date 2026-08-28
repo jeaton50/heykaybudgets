@@ -218,7 +218,7 @@
             if (guidesLink) guidesLink.setAttribute("aria-current", "page");
         }
 
-        var toolSlugs = ["mortgage", "resources", "budget-printables"];
+        var toolSlugs = ["mortgage", "free-resources", "budget-printables", "sinking-fund-tracker"];
         var tools = document.querySelector(".nav-tools");
         if (tools && toolSlugs.indexOf(slug) !== -1) {
             tools.classList.add("is-current");

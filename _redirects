@@ -10,6 +10,7 @@ https://heykaybudgets.com/*     https://www.heykaybudgets.com/:splat      301!
 /sinking-fund-examples-for-families   /sinking-fund-examples-families    301!
 /how-much-should-you-put-in-a-sinking-fund /how-much-sinking-fund          301!
 /best-budget-categories-for-sinking-funds /sinking-fund-budget-categories  301!
+/resources                              /free-resources                   301!
 
 # Canonical clean URL redirects
 /50-30-20-budget-rule.html               /50-30-20-budget-rule              301!
@@ -23,6 +24,7 @@ https://heykaybudgets.com/*     https://www.heykaybudgets.com/:splat      301!
 /budget-for-one.html                     /budget-for-one                    301!
 /cash-stuffing-categories.html           /cash-stuffing-categories          301!
 /cash-stuffing.html                      /cash-stuffing                     301!
+/college-student-budget.html             /college-student-budget            301!
 /contact.html                            /contact                           301!
 /couple-budget.html                      /couple-budget                     301!
 /credit-card-debt.html                   /credit-card-debt                  301!
@@ -60,7 +62,7 @@ https://heykaybudgets.com/*     https://www.heykaybudgets.com/:splat      301!
 /zero-based-budget-examples.html         /zero-based-budget-examples        301!
 /zero-based-budget-template.html         /zero-based-budget-template        301!
 /zero-based-budget.html                  /zero-based-budget                 301!
-/resources.html                          /resources                         301!
+/resources.html                          /free-resources                    301!
 /budget-printables.html                  /budget-printables                 301!
 /sinking-fund-tracker.html               /sinking-fund-tracker              301!
 /budget-buffer-vs-emergency-fund-vs-sinking-fund.html /budget-buffer-vs-emergency-fund-vs-sinking-fund 301!

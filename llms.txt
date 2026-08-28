@@ -18,7 +18,6 @@ The audience is everyday people who want to understand their money better: peopl
 
 - [Debt Payoff Calculator](https://www.heykaybudgets.com/) - Enter multiple debts to see an amortization schedule, compare the avalanche vs. snowball payoff methods, see how extra payments reduce interest and time to payoff, and export results to Excel.
 - [Mortgage Calculator](https://www.heykaybudgets.com/mortgage) - Enter loan amount, rate, term, escrow, and extra payment to see a full amortization schedule and compare standard vs. accelerated payoff.
-- [Free Budgeting Printables and Calculators](https://www.heykaybudgets.com/resources) - A central hub for calculators, worksheets, trackers, checklists, and beginner guides.
 - [Free Budgeting Printables](https://www.heykaybudgets.com/budget-printables) - Printable monthly budget, sinking fund, debt payoff, and budget buffer worksheets.
 - [Free Budgeting Printables and Calculators](https://www.heykaybudgets.com/free-resources) - Central hub for calculators, worksheets, checklists, sinking fund resources, and debt payoff tools.
 
