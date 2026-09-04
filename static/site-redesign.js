@@ -15,8 +15,8 @@
         "mistakes": ["5 Budgeting Mistakes That Keep You Broke", "Budgeting Tips"],
         "sinking-funds": ["Sinking Fund Categories: 50+ Examples to Stop Surprise Expenses", "Sinking Funds"],
         "sinking-fund-categories": ["50+ Sinking Fund Categories", "Sinking Funds"],
-        "sinking-fund-examples": ["Sinking Fund Examples: 75 Ideas for Beginners", "Sinking Funds"],
-        "high-priority-sinking-funds": ["High-Priority Sinking Funds: What to Save for First", "Sinking Funds"],
+        "sinking-fund-examples": ["Sinking Fund Examples: 75 Real-Life Ideas for Beginners", "Sinking Funds"],
+        "high-priority-sinking-funds": ["High Priority Sinking Funds: What to Save for First", "Sinking Funds"],
         "sinking-fund-examples-families": ["Sinking Fund Examples for Families", "Sinking Funds"],
         "emergency-fund-vs-sinking-fund": ["Emergency Fund vs Sinking Fund", "Sinking Funds"],
         "how-much-sinking-fund": ["How Much Should You Put in a Sinking Fund?", "Sinking Funds"],
@@ -196,7 +196,7 @@
         var section = document.createElement("aside");
         section.className = "author-box";
         section.setAttribute("aria-labelledby", "about-kay-title");
-        section.innerHTML = '<span class="author-avatar" aria-hidden="true"></span><div><p class="author-kicker">About the author</p><h2 id="about-kay-title">About Kay</h2><p>Kay writes Hey Kay Budgets from personal experience after learning how to budget, save, and pay down debt without shame or complicated finance jargon. She is not a licensed financial advisor and shares practical budgeting systems, calculators, and examples for beginners.</p><a href="about">Read Kay\'s story and editorial approach &rarr;</a></div>';
+        section.innerHTML = '<span class="author-avatar" aria-hidden="true"></span><div><p class="author-kicker">About the author</p><h2 id="about-kay-title">About Kay</h2><p>Kay writes Hey Kay Budgets from personal experience with budgeting, saving, debt payoff, and building simple systems for real life. She is not a licensed financial advisor, but she shares beginner-friendly tools and examples to help readers make a plan without shame or confusing finance jargon.</p><a href="about">Read Kay\'s story and editorial approach &rarr;</a></div>';
         return section;
     }
 
@@ -431,7 +431,9 @@
             midpoint.insertAdjacentElement("afterend", createSignup("mid"));
         }
 
-        content.appendChild(createAuthorBox());
+        if (!content.querySelector(".author-box")) {
+            content.appendChild(createAuthorBox());
+        }
         content.appendChild(createRelatedGuides(slug));
         content.appendChild(createSignup("end"));
     }
