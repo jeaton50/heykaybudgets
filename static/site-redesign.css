@@ -14,16 +14,97 @@
     --shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
 }
 
+*, *::before, *::after { box-sizing: border-box; }
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 92px;
 }
 
 body {
+    margin: 0;
+    padding-bottom: var(--consent-space, 0px);
     background: var(--bg) !important;
     color: var(--text) !important;
     font-family: Inter, Arial, sans-serif !important;
     overflow-x: hidden;
+}
+
+.cookie-choices {
+    border: 0;
+    padding: 4px;
+    background: transparent;
+    color: var(--text-muted);
+    font: inherit;
+    font-size: 0.8rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+#ck-banner {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 20px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--card-border);
+    background: #07111b;
+}
+#ck-banner p { flex: 1 1 220px; margin: 0; font-size: 0.85rem; line-height: 1.6; }
+#ck-banner .ck-row { display: flex; gap: 10px; }
+#ck-banner button { padding: 10px 18px; border-radius: 6px; font: inherit; cursor: pointer; }
+#ck-banner .ck-yes { background: var(--gold); color: #111820; border: 0; }
+#ck-banner .ck-no { background: transparent; border: 1px solid var(--text-soft); }
+#ck-banner .ck-yes, #ck-banner .ck-no { min-height: 44px; }
+#ck-banner .ck-no { color: #e1e6ed; }
+.glass-card.author-box { display: block; }
+.glass-card { padding: 28px; margin-bottom: 24px; }
+.page { margin-left: auto; margin-right: auto; }
+.page h2 { margin-bottom: 14px; }
+.page p { margin-bottom: 12px; }
+.article-content, .resource-card { min-width: 0; }
+.page ul, .page ol { padding-left: 1.5rem; }
+.post-meta a { color: var(--teal); }
+.nav-wrap { margin: 22px auto; }
+.nav-btn { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; text-decoration: none; }
+.btn-export { color: #07111b !important; }
+.download-list { display: grid; gap: 12px; margin: 20px 0; }
+.download-list a { display: inline-block; min-height: 44px; padding: 10px 0; }
+.res-card h3, .si .vl { overflow-wrap: anywhere; }
+
+@media print {
+    body:has(#monthly-budget), body:has(#monthly-budget) * {
+        color: #000 !important;
+        background: #fff !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    body:has(#monthly-budget) .bg-scene,
+    body:has(#monthly-budget) .page > h1,
+    body:has(#monthly-budget) .page > .post-meta,
+    body:has(#monthly-budget) .site-header,
+    body:has(#monthly-budget) .site-footer,
+    body:has(#monthly-budget) #ck-banner,
+    body:has(#monthly-budget) .no-print,
+    body:has(#monthly-budget) .nav-wrap,
+    body:has(#monthly-budget) .glass-card:not(:has(.worksheet)) { display: none !important; }
+    body:has(#monthly-budget) .page { width: 100% !important; max-width: none !important; padding: 0 !important; }
+    body:has(#monthly-budget) .glass-card { padding: 8px !important; break-inside: avoid; border: 0 !important; }
+    body:has(#monthly-budget) .glass-card:has(.worksheet) { break-before: page; }
+    body:has(#monthly-budget) #monthly-budget { break-before: auto; }
+    body:has(#monthly-budget) .worksheet { border: 1px solid #444; padding: 12px; }
+    body:has(#monthly-budget) table { min-width: 0 !important; width: 100% !important; }
+    body:has(#monthly-budget) th, body:has(#monthly-budget) td { border: 1px solid #444 !important; height: 30px; }
+    body:has(#monthly-budget) .write-line { border-bottom: 1px solid #444; }
 }
 
 .bg-scene {

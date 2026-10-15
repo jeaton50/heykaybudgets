@@ -196,7 +196,7 @@
         var section = document.createElement("aside");
         section.className = "author-box";
         section.setAttribute("aria-labelledby", "about-kay-title");
-        section.innerHTML = '<span class="author-avatar" aria-hidden="true"></span><div><p class="author-kicker">About the author</p><h2 id="about-kay-title">About Kay</h2><p>Kay writes Hey Kay Budgets from personal experience with budgeting, saving, debt payoff, and building simple systems for real life. She is not a licensed financial advisor, but she shares beginner-friendly tools and examples to help readers make a plan without shame or confusing finance jargon.</p><a href="about">Read Kay\'s story and editorial approach &rarr;</a></div>';
+        section.innerHTML = '<span class="author-avatar" aria-hidden="true"></span><div><p class="author-kicker">About the author</p><h2 id="about-kay-title">About Kay</h2><p>Kay publishes beginner-friendly budgeting guides and free tools at Hey Kay Budgets. The worked examples are educational illustrations, not personal financial advice.</p><a href="/about">Read the editorial approach &rarr;</a></div>';
         return section;
     }
 
@@ -290,14 +290,9 @@
         section.innerHTML =
             '<p class="signup-kicker">Free printable</p>' +
             "<h2>Make Your Next Money Step Easier</h2>" +
-            "<p>Get the free debt payoff worksheet plus practical budgeting notes from Hey Kay Budgets.</p>" +
-            '<form action="https://formspree.io/heykaybudgets@gmail.com" method="POST">' +
-            '<label class="sr-only" for="article-email-' + position + '">Email address</label>' +
-            '<input id="article-email-' + position + '" type="email" name="email" placeholder="Your email address" autocomplete="email" required>' +
-            '<button type="submit">Send the Worksheet</button>' +
-            '<input type="hidden" name="_subject" value="New Hey Kay Budgets article subscriber">' +
-            "</form>" +
-            '<p class="signup-note">No spam. Unsubscribe anytime.</p>';
+            "<p>Record balances, rates, and payments in a printable plan. No email is required.</p>" +
+            '<a class="hero-primary" href="/static/downloads/debt-payoff-worksheet.pdf" download>Download worksheet (PDF)</a> ' +
+            '<a class="hero-secondary" href="/budget-printables#debt-payoff">View printable worksheet</a>';
         return section;
     }
 

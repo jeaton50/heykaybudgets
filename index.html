@@ -5,7 +5,6 @@
         <meta name="robots" content="index, follow">
 <meta name='impact-site-verification' value='00cf5fc4-7343-4d25-a79f-8c78e347046e'>
     <meta name="google-adsense-account" content="ca-pub-9306267160220923">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9306267160220923" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Debt Payoff Calculator: Find Your Debt-Free Date | Hey Kay Budgets</title>
     <meta name="description" content="Use this free debt payoff calculator to compare payoff strategies, estimate your debt-free date, and see how extra monthly payments save time and interest.">
@@ -40,7 +39,7 @@
           "applicationCategory": "FinanceApplication",
           "operatingSystem": "Web",
           "description": "Use this free debt payoff calculator to compare payoff strategies, estimate your debt-free date, and see how extra monthly payments save time and interest.",
-          "dateModified": "2026-09-06",
+          "dateModified": "2026-10-15",
           "offers": {
             "@type": "Offer",
             "price": "0",
@@ -62,7 +61,7 @@
           "@type": "Person",
           "name": "Kay",
           "url": "https://www.heykaybudgets.com/about",
-          "description": "Kay writes beginner-friendly budgeting, saving, and debt payoff guides from personal experience."
+          "description": "Kay publishes beginner-friendly budgeting, saving, and debt payoff guides."
         },
         {
           "@type": "BreadcrumbList",
@@ -673,7 +672,7 @@
   "sameAs": ["https://www.youtube.com/@HeyKayBudgets"]
 }
 </script>
-    <link rel="stylesheet" href="static/site-redesign.css">
+    <link rel="stylesheet" href="static/site-redesign.css?v=20261015">
 </head>
 <body>
 <!-- Animated Background -->
@@ -936,21 +935,17 @@
 
         <section class="email-signup">
           <div class="signup-inner">
-            <h2>Get the Free Debt Payoff Worksheet</h2>
-            <p>Enter your email and I'll send you a printable debt tracking worksheet &mdash; plus weekly budgeting tips straight from the Hey Kay Budgets community.</p>
-            <form class="signup-form" action="https://formspree.io/heykaybudgets@gmail.com" method="POST">
-              <label class="sr-only" for="home-email">Email address</label>
-              <input id="home-email" type="email" name="email" placeholder="Your email address" autocomplete="email" required>
-              <button type="submit">Send Me the Worksheet</button>
-              <input type="hidden" name="_subject" value="New Hey Kay Budgets subscriber">
-            </form>
-            <p class="signup-note">No spam. Unsubscribe anytime.</p>
+            <h2>Free Debt Payoff Worksheet</h2>
+            <p>Record balances, rates, and payments in a printable plan. No email address is required.</p>
+            <a class="hero-primary" href="/static/downloads/debt-payoff-worksheet.pdf" download>Download worksheet (PDF)</a>
+            <a class="hero-secondary" href="/budget-printables#debt-payoff">View printable worksheet</a>
           </div>
         </section>
 
         <section class="content-section" aria-label="Debt Payoff Calculator Guide">
 
         <h2>How to Use a Debt Payoff Calculator to Pay Off Debt Faster</h2>
+        <p><strong>Estimate assumptions:</strong> Each debt is calculated independently with a constant APR divided by 12, interest rounded to cents monthly, and fixed payments at the end of each month. Extra payments are not automatically rolled to other debts. The payoff month assumes your first payment is next month. Actual daily interest, changing minimums, fees, and payment dates can change the result. Use the strategy guides to choose where to direct extra money.</p>
         <p>
             A debt payoff calculator turns balances, interest rates, minimum payments, and extra payments
             into a month-by-month estimate. Instead of guessing whether an extra $25 or $100 matters, you
@@ -1200,12 +1195,12 @@
     <section class="content-section" aria-label="About the author">
         <div class="glass-card author-box">
             <h2>About Kay</h2>
-            <p>Kay writes Hey Kay Budgets from personal experience with budgeting, saving, debt payoff, and building simple systems for real life. She is not a licensed financial advisor, but she shares beginner-friendly tools and examples to help readers make a plan without shame or confusing finance jargon.</p>
+            <p>Kay publishes beginner-friendly budgeting guides and free tools at Hey Kay Budgets. The examples are educational illustrations, not personal financial advice. Read the <a href="/about">editorial approach</a> or <a href="/contact">send a correction</a>.</p>
         </div>
     </section>
 
         <footer class="site-footer">
-            <div class="footer-links">
+            <div class="footer-links"><button type="button" class="cookie-choices" onclick="hkbConsentPreferences()">Cookie choices</button>
                 <a href="about">About Us</a>
                 <a href="contact">Contact</a>
                 <a href="privacy">Privacy Policy</a>
@@ -1247,6 +1242,15 @@
         function getSym() { return csym[document.getElementById('currency').value] || '$'; }
         function fmt(n, sym) { return sym + parseFloat(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
         function r2(n) { return Math.round((n + Number.EPSILON) * 100) / 100; }
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>"']/g, function(c) {
+                return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+            });
+        }
+        function payoffMonth(months) {
+            var now = new Date();
+            return new Date(now.getFullYear(), now.getMonth() + months, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+        }
 
         function addRow(name, bal, rate, min, ext) {
             rowCount++;
@@ -1260,6 +1264,11 @@
                 '<td><input type="number" placeholder="e.g., 50" min="0" step="0.01" value="' + (ext||'') + '"></td>' +
                 '<td class="rm-cell">' + rmBtn + '</td>';
             document.getElementById('debt-rows').appendChild(tr);
+            var inputs = tr.querySelectorAll('input');
+            ['Debt name', 'Balance', 'Annual interest rate', 'Minimum monthly payment', 'Extra monthly payment'].forEach(function(label, i) {
+                inputs[i].setAttribute('aria-label', label + ' for debt ' + rowCount);
+            });
+            inputs[0].value = name || '';
         }
 
         function resetAll() {
@@ -1274,6 +1283,10 @@
         async function exportData() {
             var rows = document.querySelectorAll('#debt-rows tr');
             if (!rows.length) { alert('No data to export.'); return; }
+            if (Array.from(rows).some(function(row) {
+                var ins = row.querySelectorAll('input');
+                return [1, 2, 3].some(function(i) { return ins[i].value.trim() === ''; });
+            })) { alert('Enter a balance, annual rate (0 for zero interest), and minimum payment before exporting.'); return; }
             var sym = getSym();
             var debts = [];
             rows.forEach(function(row, idx) {
@@ -1313,7 +1326,7 @@
                     summaryRows.push([
                         d.name, d.bal, d.rate, d.min, d.ext,
                         totInt, totPaid,
-                        res.origM || res.mo, res.mo, Math.max(res.saved, 0)
+                        res.origM || 'Not repaid within model limit', res.mo, res.saved === null ? 'Unavailable' : Math.max(res.saved, 0)
                     ]);
 
                     /* ── Per-Debt Amortization Sheet ── */
@@ -1329,7 +1342,7 @@
                         ['Total Paid',        totPaid],
                         ['Months to Payoff',  res.mo],
                         ['Years to Payoff',   res.yr],
-                        ['Months Saved',      Math.max(res.saved,0)],
+                        ['Months Saved',      res.saved === null ? 'Unavailable' : Math.max(res.saved,0)],
                         [],
                         ['Month','Payment','Interest','Principal','Remaining Balance']
                     ];
@@ -1339,7 +1352,7 @@
                     sheetRows.push([]);
                     sheetRows.push(['TOTALS', totPaid, totInt, d.bal, 0]);
 
-                    var sname = d.name.replace(/[:\\\/\?\*\[\]]/g,'').substring(0,31) || ('Debt'+(i+1));
+                    var sname = ('Debt ' + (i + 1) + ' - ' + d.name.replace(/[:\\\/\?\*\[\]]/g,'')).substring(0,31);
                     var ws = XLSX.utils.aoa_to_sheet(sheetRows);
                     ws['!cols'] = [{wch:8},{wch:12},{wch:12},{wch:12},{wch:18}];
                     XLSX.utils.book_append_sheet(wb, ws, sname);
@@ -1359,9 +1372,14 @@
         }
 
         function amort(d) {
+            if (![d.bal, d.rate, d.min, d.ext].every(Number.isFinite)) throw new Error('Enter finite numbers in every field.');
+            if (d.bal <= 0 || r2(d.bal) <= 0) throw new Error('Balance must be at least 0.01.');
+            if (d.min < 0 || d.ext < 0 || d.rate < 0) throw new Error('Values cannot be negative.');
+            if (d.bal > 1e12 || d.min > 1e12 || d.ext > 1e12 || d.rate > 1000) throw new Error('Use amounts up to 1 trillion and annual rates up to 1,000%.');
+            d.bal = r2(d.bal); d.min = r2(d.min); d.ext = r2(d.ext);
             var mr = (d.rate / 100) / 12, tot = d.min + d.ext;
-            var ob = d.bal, origM = 0;
-            for (var m = 1; m < 1000; m++) {
+            var ob = d.bal, origM = null;
+            for (var m = 1; m <= 1200; m++) {
                 var oi = r2(ob * mr), op = r2(d.min - oi);
                 if (op <= 0) break;
                 if (op > ob) op = ob;
@@ -1369,7 +1387,7 @@
                 if (ob <= 0) { origM = m; break; }
             }
             var bal = d.bal, sc = [];
-            for (var m = 1; m < 1000; m++) {
+            for (var m = 1; m <= 1200; m++) {
                 var i = r2(bal * mr), p = r2(tot - i), pay = tot;
                 if (p <= 0) throw new Error('Payment too low for "' + d.name + '".');
                 if (p > bal) { p = bal; pay = r2(p + i); }
@@ -1377,7 +1395,8 @@
                 sc.push({ m: m, pay: pay, i: i, p: p, bal: Math.max(bal, 0) });
                 if (bal <= 0) break;
             }
-            return { sc: sc, origM: origM, origY: Math.ceil(origM/12), mo: sc.length, yr: Math.ceil(sc.length/12), saved: origM - sc.length };
+            if (bal > 0) throw new Error('This payment does not repay the balance within the 100-year model limit. Increase the payment.');
+            return { sc: sc, origM: origM, origY: origM === null ? null : Math.ceil(origM/12), mo: sc.length, yr: Math.ceil(sc.length/12), saved: origM === null ? null : origM - sc.length };
         }
 
         async function calculate() {
@@ -1399,6 +1418,11 @@
             rows.forEach(function(row, idx) {
                 var ins  = row.querySelectorAll('input');
                 var name = ins[0].value.trim() || ('Debt ' + (idx + 1));
+                if ([1, 2, 3].some(function(i) { return ins[i].value.trim() === ''; })) {
+                    hasCalculationErrors = true;
+                    showErr(out, name, 'Enter a balance, annual rate (0 for zero interest), and minimum payment.');
+                    return;
+                }
                 var bal  = parseFloat(ins[1].value) || 0;
                 var rate = parseFloat(ins[2].value) || 0;
                 var min  = parseFloat(ins[3].value) || 0;
@@ -1527,7 +1551,7 @@
         }
 
         function showErr(c, name, msg) {
-            c.insertAdjacentHTML('beforeend', '<div class="err-box"><strong>' + name + ':</strong> ' + msg + '</div>');
+            c.insertAdjacentHTML('beforeend', '<div class="err-box" role="alert"><strong>' + escapeHtml(name) + ':</strong> ' + escapeHtml(msg) + '</div>');
         }
 
         function renderResult(c, d, res, sym, idx) {
@@ -1543,7 +1567,7 @@
 
             c.insertAdjacentHTML('beforeend',
                 '<div class="res-card" style="animation-delay:' + (idx * 0.08) + 's">' +
-                '<h3>' + d.name + '</h3>' +
+                '<h3>' + escapeHtml(d.name) + '</h3>' +
                 '<div class="card-body-row">' +
                   '<div class="chart-box"><div class="chart-label">Principal vs Interest</div><canvas id="' + cid + '"></canvas></div>' +
                   '<div class="stats-col">' +
@@ -1556,6 +1580,7 @@
                     '<div class="si"><div class="lb">Total Paid</div><div class="vl">'+fmt(totPaid,sym)+'</div></div>' +
                     origH +
                     '<div class="si hl"><div class="lb">Payoff w/ Extra</div><div class="vl">'+res.mo+' mo / '+res.yr+' yr</div></div>' +
+                    '<div class="si"><div class="lb">Estimated payoff month</div><div class="vl">'+payoffMonth(res.mo)+'</div></div>' +
                     savedH +
                   '</div></div>' +
                 '</div>' +
@@ -1622,7 +1647,7 @@
         <button class="ck-no" onclick="hkbCk('no')">Decline</button>
     </div>
 </div>
-<script src="static/consent-loader.js"></script>
-    <script src="static/site-redesign.js" defer></script>
+<script src="static/consent-loader.js?v=20261015"></script>
+    <script src="static/site-redesign.js?v=20261015" defer></script>
 </body>
 </html>

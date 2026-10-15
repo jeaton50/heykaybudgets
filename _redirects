@@ -5,6 +5,10 @@ https://heykaybudgets.com/*                       https://www.heykaybudgets.com/
 https://quiet-bienenstitch-b28edc.netlify.app/*   https://www.heykaybudgets.com/:splat  301!
 
 # Helpful aliases from editorial/search naming to established canonical pages
+/site%20example/mortgage.html            /mortgage                          301!
+/site%20example/mortgage                 /mortgage                          301!
+/site%20example/index%20(2).html          /                                  301!
+/site%20example/index%20(2)               /                                  301!
 /budget-buffer                         /buffer                            301!
 /budget-categories-for-beginners      /budget-categories                 301!
 /stop-living-paycheck-to-paycheck     /living-paycheck-to-paycheck       301!
@@ -52,6 +56,13 @@ https://quiet-bienenstitch-b28edc.netlify.app/*   https://www.heykaybudgets.com/
 /save-10000-in-a-year.html               /save-10000-in-a-year              301!
 /save-1000-emergency-fund.html           /save-1000-emergency-fund          301!
 /save-money-fast.html                    /save-money-fast                   301!
+
+# Remaining article and resource aliases
+/first-budget.html                      /first-budget                      301!
+/free-resources.html                    /free-resources                    301!
+/frugal-living-tips.html                 /frugal-living-tips                 301!
+/grocery-budget.html                    /grocery-budget                    301!
+/how-to-cut-expenses.html               /how-to-cut-expenses               301!
 /saving-strategy.html                    /saving-strategy                   301!
 /sinking-fund-budget-categories.html     /sinking-fund-budget-categories    301!
 /sinking-fund-categories.html            /sinking-fund-categories           301!

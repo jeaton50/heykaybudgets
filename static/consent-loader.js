@@ -21,6 +21,13 @@
   function hideBanner() {
     var banner = document.getElementById('ck-banner');
     if (banner) banner.style.display = 'none';
+    document.documentElement.style.setProperty('--consent-space', '0px');
+  }
+
+  function reserveBannerSpace() {
+    var banner = document.getElementById('ck-banner');
+    var height = banner && banner.style.display !== 'none' ? banner.offsetHeight : 0;
+    document.documentElement.style.setProperty('--consent-space', height + 'px');
   }
 
   function loadScript(src, attrs) {
@@ -64,16 +71,31 @@
   }
 
   window.hkbCk = function (value) {
+    if (value !== 'yes' && value !== 'no') return;
+    var hadMarketing = window.hkbMarketingLoaded;
     setConsent(value);
     hideBanner();
     if (value === 'yes') loadMarketingScripts();
+    if (value === 'no' && hadMarketing) window.location.reload();
+  };
+
+  window.hkbConsentPreferences = function () {
+    var banner = document.getElementById('ck-banner');
+    if (banner) {
+      banner.style.display = 'flex';
+      reserveBannerSpace();
+      var firstButton = banner.querySelector('button');
+      if (firstButton) firstButton.focus();
+    }
   };
 
   function initConsent() {
     var consent = getConsent();
     if (consent) hideBanner();
     if (consent === 'yes') loadMarketingScripts();
+    reserveBannerSpace();
   }
+  window.addEventListener('resize', reserveBannerSpace);
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initConsent);

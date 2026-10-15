@@ -5,7 +5,6 @@
         <meta name="robots" content="index, follow">
 <meta name='impact-site-verification' value='00cf5fc4-7343-4d25-a79f-8c78e347046e'>
     <meta name="google-adsense-account" content="ca-pub-9306267160220923">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9306267160220923" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mortgage Budget Calculator: Monthly Payment, Escrow, and Extra Payments | Hey Kay Budgets</title>
     <meta name="description" content="Use this mortgage budget calculator to plan your monthly payment, escrow, extra payments, payoff timeline, and total interest before you buy or refinance.">
@@ -27,7 +26,7 @@
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web",
       "description": "Free mortgage and loan amortization calculator. Enter your loan amount, rate, and term to see a month-by-month payment schedule and compare the impact of extra principal payments.",
-      "dateModified": "2026-09-06",
+      "dateModified": "2026-10-15",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -545,7 +544,7 @@
             line-height: 1.7; padding-left: 34px;
         }
     </style>
-    <link rel="stylesheet" href="static/site-redesign.css">
+    <link rel="stylesheet" href="static/site-redesign.css?v=20261015">
 </head>
 <body>
 <!-- Animated Background -->
@@ -674,6 +673,7 @@
         <section class="content-section" aria-label="Mortgage Calculator Guide">
 
         <h2>How to Use This Mortgage Calculator</h2>
+        <p><strong>Estimate assumptions:</strong> Fixed monthly interest uses the annual rate divided by 12 and rounds to cents. Monthly Payment includes principal, interest, and the escrow you enter. Extra Monthly Fees (including HOA or PMI) are added on top, so do not also include them in Monthly Payment. Extra principal reduces the loan balance. Escrow and fees stay constant in the model; no PMI cancellation, changing taxes, closing costs, or variable rates are modeled. Check actual terms with your lender.</p>
         <p>
             The Hey Kay Budgets Mortgage Calculator is designed to give you a complete, month-by-month picture
             of your home loan. Whether you are shopping for your first house or trying to decide whether to
@@ -837,10 +837,12 @@
         <div class="faq-item">
             <div class="faq-q">How do I remove PMI?</div>
             <div class="faq-a">
-                Under the Homeowners Protection Act, lenders must cancel PMI automatically once your
-                loan balance reaches 78% of the original purchase price. However, you can request
-                cancellation earlier — at 80% LTV — by contacting your servicer. Use your amortization
-                schedule to identify the exact month you hit that threshold.
+                For many conventional loans, you can request PMI cancellation at 80% of the home's
+                original value if the conditions are met. Automatic termination generally occurs at the
+                scheduled 78% point if you are current on payments. Rules and exceptions differ for other
+                loan types. Check your servicer's requirements and the
+                <a href="https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/">CFPB explanation of PMI cancellation</a>.
+                This calculator keeps entered fees constant and does not calculate PMI cancellation.
             </div>
         </div>
 
@@ -870,7 +872,7 @@
 
         <div class="glass-card author-box">
             <h2>About Kay</h2>
-            <p>Kay writes Hey Kay Budgets from personal experience with budgeting, saving, debt payoff, and building simple systems for real life. She is not a licensed financial advisor, but she shares beginner-friendly tools and examples to help readers make a plan without shame or confusing finance jargon.</p>
+            <p>Kay publishes beginner-friendly budgeting guides and free tools at Hey Kay Budgets. The examples are educational illustrations, not personal financial advice. Read the <a href="/about">editorial approach</a> or <a href="/contact">send a correction</a>.</p>
         </div>
 
         <div class="glass-card">
@@ -888,7 +890,7 @@
     </section>
 
         <footer class="site-footer">
-            <div class="footer-links">
+            <div class="footer-links"><button type="button" class="cookie-choices" onclick="hkbConsentPreferences()">Cookie choices</button>
                 <a href="about">About Us</a>
                 <a href="contact">Contact</a>
                 <a href="privacy">Privacy Policy</a>
@@ -906,6 +908,10 @@
         function gv(id) { return parseFloat(document.getElementById(id).value) || 0; }
         var chartInstances = {};
         var lastResult = null;
+        document.querySelectorAll('.form-tbl input').forEach(function(input) {
+            var label = input.closest('tr').querySelector('.label-cell');
+            if (label) input.setAttribute('aria-label', label.textContent.trim().replace(/\s+/g, ' '));
+        });
 
         function exportData() {
             if (!lastResult) { alert('Please calculate your mortgage first, then export.'); return; }
@@ -939,7 +945,8 @@
                 ['Total Months',             noExtra.months],
                 ['Payoff Timeline',          noExY + ' years ' + noExM + ' months'],
                 ['Total Interest Paid',      noExtra.totInt],
-                ['Total Amount Paid',        r2(d.loan + noExtra.totInt)]
+                ['Principal + Interest Paid', r2(d.loan + noExtra.totInt)],
+                ['All Payments incl. Escrow/Fees', r2(noExtra.sc.reduce(function(sum, row) { return sum + row.pay; }, 0))]
             ];
             if (hasExtra) {
                 summaryRows.push([]);
@@ -947,7 +954,8 @@
                 summaryRows.push(['Total Months',          wExtra.months]);
                 summaryRows.push(['Payoff Timeline',       wExY + ' years ' + wExM + ' months']);
                 summaryRows.push(['Total Interest Paid',   wExtra.totInt]);
-                summaryRows.push(['Total Amount Paid',     r2(d.loan + wExtra.totInt)]);
+                summaryRows.push(['Principal + Interest Paid', r2(d.loan + wExtra.totInt)]);
+                summaryRows.push(['All Payments incl. Escrow/Fees', r2(wExtra.sc.reduce(function(sum, row) { return sum + row.pay; }, 0))]);
                 summaryRows.push(['Months Saved',          saved]);
                 summaryRows.push(['Interest Saved',        intSaved]);
             }
@@ -999,6 +1007,7 @@
         }
 
         function mortgageAmort(loan, mr, monthlyPay, escrow, extraFees, extraPmt) {
+            if (![loan, mr, monthlyPay, escrow, extraFees, extraPmt].every(Number.isFinite) || loan <= 0 || mr < 0 || monthlyPay <= 0 || escrow < 0 || extraFees < 0 || extraPmt < 0) throw new Error('Enter valid nonnegative amounts and a positive loan and payment.');
             var bal = loan, sc = [], totInt = 0;
             var totPay = monthlyPay + extraFees + extraPmt;
             for (var m = 1; m <= 1000; m++) {
@@ -1011,13 +1020,13 @@
                 sc.push({ m:m, pay:pay, i:i, p:p, bal:Math.max(bal,0) });
                 if (bal <= 0) break;
             }
+            if (bal > 0) throw new Error('The payment does not repay the loan within the 1,000-month model limit.');
             return { sc:sc, totInt:totInt, months:sc.length };
         }
 
         function calcMinPI(loan, mr, n) {
             if (mr === 0) return r2(loan / n);
-            var f = Math.pow(1 + mr, n);
-            return r2(loan * (mr * f) / (f - 1));
+            return r2(loan * mr / (1 - Math.pow(1 + mr, -n)));
         }
 
         function calculate() {
@@ -1025,10 +1034,15 @@
             Object.values(chartInstances).forEach(function(c) { if(c) c.destroy(); });
             chartInstances = {};
             out.innerHTML = '';
+            lastResult = null;
             var loan   = gv('loan_amount'), rate   = gv('annual_rate');
             var term   = gv('term_years'),  mpay   = gv('monthly_pay');
             var escrow = gv('escrow'),      efees  = gv('extra_fees');
             var extPmt = gv('extra_payment');
+            if (['loan_amount', 'annual_rate', 'term_years', 'monthly_pay'].some(function(id) { return document.getElementById(id).value.trim() === ''; })) { out.innerHTML = '<div class="err-box" role="alert">Enter Loan Amount, annual rate (0 for zero interest), term, and monthly payment.</div>'; return; }
+            loan = r2(loan); mpay = r2(mpay); escrow = r2(escrow); efees = r2(efees); extPmt = r2(extPmt);
+            if (![loan, rate, term, mpay, escrow, efees, extPmt].every(Number.isFinite)) { out.innerHTML = '<div class="err-box" role="alert">Enter finite numbers.</div>'; return; }
+            if ([loan, mpay, escrow, efees, extPmt].some(function(value) { return value > 1e12; }) || rate > 1000 || term > 80 || (term > 0 && !Number.isInteger(term))) { out.innerHTML = '<div class="err-box" role="alert">Use whole-number loan terms from 1 to 80 years, amounts up to 1 trillion, and rates up to 1,000%.</div>'; return; }
             if (loan  <= 0) { out.innerHTML = '<div class="err-box">Loan Amount must be greater than zero.</div>'; return; }
             if (term  <= 0) { out.innerHTML = '<div class="err-box">Loan Term must be greater than zero.</div>'; return; }
             if (mpay  <= 0) { out.innerHTML = '<div class="err-box">Monthly Payment must be greater than zero.</div>'; return; }
@@ -1079,6 +1093,7 @@
                   '<div class="si"><div class="lb">Annual Rate</div><div class="vl">'+d.rate.toFixed(3)+'%</div></div>' +
                   '<div class="si"><div class="lb">Term</div><div class="vl">'+d.term+' years</div></div>' +
                   '<div class="si"><div class="lb">Monthly Payment</div><div class="vl">'+fmt(d.mpay)+'</div></div>' +
+                  '<div class="si"><div class="lb">Total monthly outflow</div><div class="vl">'+fmt(d.mpay + d.efees + d.extPmt)+'</div></div>' +
                   '<div class="si"><div class="lb">P&amp;I Payment</div><div class="vl">'+fmt(d.reqPI)+'</div></div>' +
                   '<div class="si"><div class="lb">Escrow</div><div class="vl">'+fmt(d.escrow)+'</div></div>' +
                   (d.efees  > 0 ? '<div class="si"><div class="lb">Extra Fees</div><div class="vl">'+fmt(d.efees)+'</div></div>' : '') +
@@ -1121,7 +1136,7 @@
                 var step = Math.max(1, Math.floor(noExtra.sc.length / 80));
                 function sample(sc) {
                     var pts = sc.filter(function(r, i) { return i % step === 0 || i === sc.length - 1; });
-                    return { labels: pts.map(function(r) { return r.m; }), data: pts.map(function(r) { return r.bal; }) };
+                    return { labels: pts.map(function(r) { return r.m; }), data: pts.map(function(r) { return { x: r.m, y: r.bal }; }) };
                 }
                 var s1 = sample(noExtra.sc);
                 var datasets = [{
@@ -1175,6 +1190,7 @@
                                 }
                             },
                             x: {
+                                type: 'linear',
                                 grid: { display: false },
                                 ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 10 } },
                                 title: { display: true, text: 'Month', color: 'rgba(255,255,255,0.3)', font: { size: 11 } }
@@ -1210,7 +1226,7 @@
         <button class="ck-no" onclick="hkbCk('no')">Decline</button>
     </div>
 </div>
-<script src="static/consent-loader.js"></script>
-    <script src="static/site-redesign.js" defer></script>
+<script src="static/consent-loader.js?v=20261015"></script>
+    <script src="static/site-redesign.js?v=20261015" defer></script>
 </body>
 </html>
