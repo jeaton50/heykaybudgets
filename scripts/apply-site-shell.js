@@ -22,6 +22,7 @@ const shell = `        <header class="site-header">
                         <div class="nav-tools-menu">
                             <a href="/">Debt Payoff Tool</a>
                             <a href="mortgage">Mortgage Calculator</a>
+                            <a href="free-resources">Free Resources</a>
                         </div>
                     </details>
                     <a href="about">About</a>

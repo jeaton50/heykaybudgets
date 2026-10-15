@@ -25,6 +25,11 @@
 
   function loadScript(src, attrs) {
     if (loadedScripts[src]) return loadedScripts[src];
+    var existing = document.querySelector('script[src="' + src + '"]');
+    if (existing) {
+      loadedScripts[src] = Promise.resolve(existing);
+      return loadedScripts[src];
+    }
     loadedScripts[src] = new Promise(function (resolve, reject) {
       var script = document.createElement('script');
       script.src = src;
