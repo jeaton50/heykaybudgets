@@ -9,7 +9,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo  # Added for timezone handling
 import os  # Added for environment variables
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.')
 
 # Set decimal precision higher to handle financial calculations accurately
 getcontext().prec = 28
@@ -268,9 +268,21 @@ def contact():
 def privacy_policy():
     return send_from_directory('.', 'privacy.html')
 
+@app.route('/privacy')
+def privacy_clean():
+    return send_from_directory('.', 'privacy.html')
+
 @app.route('/terms-of-service')
 def terms_of_service():
     return send_from_directory('.', 'terms.html')
+
+@app.route('/terms')
+def terms_clean():
+    return send_from_directory('.', 'terms.html')
+
+@app.route('/disclaimer')
+def disclaimer_clean():
+    return send_from_directory('.', 'disclaimer.html')
 
 @app.route('/mortgage-calculator', methods=['GET', 'POST'])
 def mortgage_calculator_page():
@@ -340,6 +352,10 @@ def sinking_fund_categories():
 def sinking_fund_examples():
     return send_from_directory('.', 'sinking-fund-examples.html')
 
+@app.route('/high-priority-sinking-funds')
+def high_priority_sinking_funds():
+    return send_from_directory('.', 'high-priority-sinking-funds.html')
+
 @app.route('/sinking-fund-budget-categories')
 def sinking_fund_budget_categories():
     return send_from_directory('.', 'sinking-fund-budget-categories.html')
@@ -363,6 +379,122 @@ def zero_based_budget():
 @app.route('/zero-based-budget-categories')
 def zero_based_budget_categories():
     return send_from_directory('.', 'zero-based-budget-categories.html')
+
+@app.route('/zero-based-budget-examples')
+def zero_based_budget_examples():
+    return send_from_directory('.', 'zero-based-budget-examples.html')
+
+@app.route('/zero-based-budget-template')
+def zero_based_budget_template():
+    return send_from_directory('.', 'zero-based-budget-template.html')
+
+@app.route('/debt-payoff-plan')
+def debt_payoff_plan():
+    return send_from_directory('.', 'debt-payoff-plan.html')
+
+@app.route('/debt-snowball-method')
+def debt_snowball_method():
+    return send_from_directory('.', 'debt-snowball-method.html')
+
+@app.route('/debt-avalanche-method')
+def debt_avalanche_method():
+    return send_from_directory('.', 'debt-avalanche-method.html')
+
+@app.route('/credit-card-debt')
+def credit_card_debt():
+    return send_from_directory('.', 'credit-card-debt.html')
+
+@app.route('/save-1000-emergency-fund')
+def save_1000_emergency_fund():
+    return send_from_directory('.', 'save-1000-emergency-fund.html')
+
+@app.route('/save-money-fast')
+def save_money_fast():
+    return send_from_directory('.', 'save-money-fast.html')
+
+@app.route('/free-resources')
+def free_resources():
+    return send_from_directory('.', 'free-resources.html')
+
+@app.route('/resources')
+def resources():
+    return redirect('/free-resources', code=301)
+
+@app.route('/budget-printables')
+def budget_printables():
+    return send_from_directory('.', 'budget-printables.html')
+
+@app.route('/sinking-fund-tracker')
+def sinking_fund_tracker():
+    return send_from_directory('.', 'sinking-fund-tracker.html')
+
+@app.route('/budget-buffer-vs-emergency-fund-vs-sinking-fund')
+def budget_buffer_vs_emergency_fund_vs_sinking_fund():
+    return send_from_directory('.', 'budget-buffer-vs-emergency-fund-vs-sinking-fund.html')
+
+@app.route('/50-30-20-budget-rule')
+def budget_50_30_20_rule():
+    return send_from_directory('.', '50-30-20-budget-rule.html')
+
+@app.route('/52-week-savings-challenge')
+def week_52_savings_challenge():
+    return send_from_directory('.', '52-week-savings-challenge.html')
+
+@app.route('/budget-categories')
+def budget_categories():
+    return send_from_directory('.', 'budget-categories.html')
+
+@app.route('/budget-for-one')
+def budget_for_one():
+    return send_from_directory('.', 'budget-for-one.html')
+
+@app.route('/cash-stuffing')
+def cash_stuffing():
+    return send_from_directory('.', 'cash-stuffing.html')
+
+@app.route('/cash-stuffing-categories')
+def cash_stuffing_categories():
+    return send_from_directory('.', 'cash-stuffing-categories.html')
+
+@app.route('/couple-budget')
+def couple_budget():
+    return send_from_directory('.', 'couple-budget.html')
+
+@app.route('/college-student-budget')
+def college_student_budget():
+    return send_from_directory('.', 'college-student-budget.html')
+
+@app.route('/debt-snowball-vs-avalanche')
+def debt_snowball_vs_avalanche():
+    return send_from_directory('.', 'debt-snowball-vs-avalanche.html')
+
+@app.route('/how-to-start-budgeting-when-behind')
+def how_to_start_budgeting_when_behind():
+    return send_from_directory('.', 'how-to-start-budgeting-when-behind.html')
+
+@app.route('/irregular-income-budget')
+def irregular_income_budget():
+    return send_from_directory('.', 'irregular-income-budget.html')
+
+@app.route('/living-paycheck-to-paycheck')
+def living_paycheck_to_paycheck():
+    return send_from_directory('.', 'living-paycheck-to-paycheck.html')
+
+@app.route('/no-spend-challenge')
+def no_spend_challenge():
+    return send_from_directory('.', 'no-spend-challenge.html')
+
+@app.route('/pay-off-debt-low-income')
+def pay_off_debt_low_income():
+    return send_from_directory('.', 'pay-off-debt-low-income.html')
+
+@app.route('/pay-yourself-first')
+def pay_yourself_first():
+    return send_from_directory('.', 'pay-yourself-first.html')
+
+@app.route('/save-10000-in-a-year')
+def save_10000_in_a_year():
+    return send_from_directory('.', 'save-10000-in-a-year.html')
 
 
 # Route for Debt Payoff Calculator

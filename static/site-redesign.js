@@ -7,20 +7,20 @@
         "monthly-budget-checklist": ["Monthly Budget Checklist for Beginners", "Budgeting Basics"],
         "zero-based-budget": ["What Is Zero Based Budgeting?", "Budgeting Basics"],
         "zero-based-budget-template": ["Zero Based Budget Template", "Budgeting Basics"],
-        "zero-based-budget-categories": ["Zero Based Budget Categories", "Budgeting Basics"],
+        "zero-based-budget-categories": ["Zero-Based Budget Categories for Beginners", "Budgeting Basics"],
         "zero-based-budget-examples": ["Zero Based Budget Examples", "Budgeting Basics"],
         "buffer": ["Budget Buffer: What It Is and How Much You Should Save", "Saving"],
-        "saving-strategy": ["How to Get One Month Ahead on Bills", "Saving"],
+        "saving-strategy": ["How to Get One Month Ahead on Bills Without Feeling Overwhelmed", "Saving"],
         "safety-net": ["Build Your First $500 Emergency Fund", "Saving"],
         "mistakes": ["5 Budgeting Mistakes That Keep You Broke", "Budgeting Tips"],
-        "sinking-funds": ["Sinking Fund Categories: 50+ Examples for Beginners", "Sinking Funds"],
+        "sinking-funds": ["Sinking Fund Categories: 50+ Examples to Stop Surprise Expenses", "Sinking Funds"],
         "sinking-fund-categories": ["50+ Sinking Fund Categories", "Sinking Funds"],
-        "sinking-fund-examples": ["Sinking Fund Examples: 75 Ideas for Beginners", "Sinking Funds"],
+        "sinking-fund-examples": ["Sinking Fund Examples: 75 Real-Life Ideas for Beginners", "Sinking Funds"],
+        "high-priority-sinking-funds": ["High Priority Sinking Funds: What to Save for First", "Sinking Funds"],
         "sinking-fund-examples-families": ["Sinking Fund Examples for Families", "Sinking Funds"],
         "emergency-fund-vs-sinking-fund": ["Emergency Fund vs Sinking Fund", "Sinking Funds"],
         "how-much-sinking-fund": ["How Much Should You Put in a Sinking Fund?", "Sinking Funds"],
         "sinking-fund-budget-categories": ["Best Budget Categories for Sinking Funds", "Sinking Funds"],
-        "high-priority-sinking-funds": ["High Priority Sinking Funds List: What to Save for First", "Sinking Funds"],
         "sinking-fund-tracker": ["Sinking Fund Tracker: How to Track Your Categories Each Month", "Sinking Funds"],
         "budget-buffer-vs-emergency-fund-vs-sinking-fund": ["Budget Buffer vs Emergency Fund vs Sinking Fund", "Saving"],
         "debt-payoff-plan": ["How to Create a Debt Payoff Plan That Works", "Debt Payoff"],
@@ -42,7 +42,8 @@
         "pay-yourself-first": ["Pay Yourself First", "Saving"],
         "save-1000-emergency-fund": ["How to Save Your First $1,000", "Saving"],
         "save-10000-in-a-year": ["How to Save $10,000 in a Year", "Saving"],
-        "save-money-fast": ["How to Save Money Fast", "Saving"]
+        "save-money-fast": ["How to Save Money Fast", "Saving"],
+        "free-resources": ["Free Budgeting Printables and Calculators", "Budgeting Tools"]
     };
 
     var articleGroups = [
@@ -66,10 +67,10 @@
             "sinking-funds",
             "sinking-fund-categories",
             "sinking-fund-examples",
+            "high-priority-sinking-funds",
             "sinking-fund-examples-families",
             "how-much-sinking-fund",
             "sinking-fund-budget-categories",
-            "high-priority-sinking-funds",
             "sinking-fund-tracker",
             "budget-buffer-vs-emergency-fund-vs-sinking-fund",
             "emergency-fund-vs-sinking-fund"
@@ -81,7 +82,8 @@
             "debt-snowball-vs-avalanche",
             "pay-off-debt-low-income",
             "credit-card-debt",
-            "beginner-budgeting"
+            "beginner-budgeting",
+            "free-resources"
         ]
     ];
 
@@ -194,7 +196,7 @@
         var section = document.createElement("aside");
         section.className = "author-box";
         section.setAttribute("aria-labelledby", "about-kay-title");
-        section.innerHTML = '<span class="author-avatar" aria-hidden="true"></span><div><p class="author-kicker">About the author</p><h2 id="about-kay-title">About Kay</h2><p>Kay writes Hey Kay Budgets from personal experience after learning how to budget, save, and pay down debt without shame or complicated finance jargon. She is not a licensed financial advisor and shares practical budgeting systems, calculators, and examples for beginners.</p><a href="about">Read Kay\'s story and editorial approach &rarr;</a></div>';
+        section.innerHTML = '<span class="author-avatar" aria-hidden="true"></span><div><p class="author-kicker">About the author</p><h2 id="about-kay-title">About Kay</h2><p>Kay writes Hey Kay Budgets from personal experience with budgeting, saving, debt payoff, and building simple systems for real life. She is not a licensed financial advisor, but she shares beginner-friendly tools and examples to help readers make a plan without shame or confusing finance jargon.</p><a href="about">Read Kay\'s story and editorial approach &rarr;</a></div>';
         return section;
     }
 
@@ -216,7 +218,7 @@
             if (guidesLink) guidesLink.setAttribute("aria-current", "page");
         }
 
-        var toolSlugs = ["mortgage", "resources", "budget-printables"];
+        var toolSlugs = ["mortgage", "free-resources", "budget-printables", "sinking-fund-tracker"];
         var tools = document.querySelector(".nav-tools");
         if (tools && toolSlugs.indexOf(slug) !== -1) {
             tools.classList.add("is-current");
@@ -429,7 +431,9 @@
             midpoint.insertAdjacentElement("afterend", createSignup("mid"));
         }
 
-        content.appendChild(createAuthorBox());
+        if (!content.querySelector(".author-box")) {
+            content.appendChild(createAuthorBox());
+        }
         content.appendChild(createRelatedGuides(slug));
         content.appendChild(createSignup("end"));
     }
